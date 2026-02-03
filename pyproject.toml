@@ -1,0 +1,76 @@
+# QALB Urdu AI Testing - Project Configuration
+# =============================================
+
+[project]
+name = "qalb-urdu-ai-testing"
+version = "0.1.0"
+description = "Testing and evaluation framework for Qalb - The State-of-the-Art Urdu Large Language Model"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Fawad Hussain", email = "syedfawadhussain@gmail.com"}
+]
+keywords = ["urdu", "nlp", "llm", "qalb", "ai", "testing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Natural Language :: Urdu",
+]
+
+dependencies = [
+    "torch>=2.0.0",
+    "transformers>=4.36.0",
+    "ollama>=0.1.0",
+    "tqdm>=4.65.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+gpu = [
+    "bitsandbytes>=0.41.0",
+    "accelerate>=0.25.0",
+]
+api = [
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/fawad-Laal/Qalb-Urdu"
+"Repository" = "https://github.com/fawad-Laal/Qalb-Urdu"
+"Qalb HuggingFace" = "https://huggingface.co/enstazao/Qalb-1.0-8B-Instruct"
+"Qalb Ollama" = "https://ollama.com/enstazao/qalb:8b-instruct-fp16"
+"Research Paper" = "https://arxiv.org/abs/2601.08141"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311']
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I", "N"]

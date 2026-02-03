@@ -1,0 +1,1608 @@
+{
+  "name": "Roman Urdu Baseline Tests",
+  "description": "140 test cases in Roman Urdu (Urdu written in English letters) across 7 categories",
+  "version": "1.0.0",
+  "script_type": "roman",
+  "test_cases": [
+    {
+      "id": "roman_qa_001",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Pakistan ka darul hakoomat kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["Islamabad", "اسلام آباد"],
+      "difficulty": "easy",
+      "tags": ["geography", "pakistan"]
+    },
+    {
+      "id": "roman_qa_002",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Suraj kis taraf se nikalta hai?",
+      "expected_language": "either",
+      "expected_keywords": ["mashriق", "east", "مشرق", "poorab"],
+      "difficulty": "easy",
+      "tags": ["science", "basic"]
+    },
+    {
+      "id": "roman_qa_003",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Pani ka chemical formula kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["H2O"],
+      "difficulty": "easy",
+      "tags": ["science", "chemistry"]
+    },
+    {
+      "id": "roman_qa_004",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Quaid-e-Azam Muhammad Ali Jinnah ki date of birth kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["1876", "December", "25", "دسمبر"],
+      "difficulty": "medium",
+      "tags": ["history", "pakistan"]
+    },
+    {
+      "id": "roman_qa_005",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Urdu zaban ko sarkari haisiyat kab mili?",
+      "expected_language": "either",
+      "expected_keywords": ["1947", "Pakistan", "پاکستان"],
+      "difficulty": "medium",
+      "tags": ["history", "language"]
+    },
+    {
+      "id": "roman_qa_006",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Zameen suraj ke gird kitne dinon mein chakkar lagati hai?",
+      "expected_language": "either",
+      "expected_keywords": ["365", "saal", "year"],
+      "difficulty": "easy",
+      "tags": ["science", "astronomy"]
+    },
+    {
+      "id": "roman_qa_007",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Insani jism mein kitni haddiyaan hoti hain?",
+      "expected_language": "either",
+      "expected_keywords": ["206"],
+      "difficulty": "medium",
+      "tags": ["science", "biology"]
+    },
+    {
+      "id": "roman_qa_008",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Pakistan ke pehle Prime Minister kaun the?",
+      "expected_language": "either",
+      "expected_keywords": ["Liaquat Ali Khan", "لیاقت علی خان"],
+      "difficulty": "medium",
+      "tags": ["history", "pakistan"]
+    },
+    {
+      "id": "roman_qa_009",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Hafte mein kitne din hote hain?",
+      "expected_language": "either",
+      "expected_keywords": ["saat", "7", "seven"],
+      "difficulty": "easy",
+      "tags": ["basic", "time"]
+    },
+    {
+      "id": "roman_qa_010",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Saal mein kitne mahine hote hain?",
+      "expected_language": "either",
+      "expected_keywords": ["12", "barah", "twelve"],
+      "difficulty": "easy",
+      "tags": ["basic", "time"]
+    },
+    {
+      "id": "roman_qa_011",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Mount Everest kitna uncha hai?",
+      "expected_language": "either",
+      "expected_keywords": ["8848", "8849", "meter"],
+      "difficulty": "medium",
+      "tags": ["geography", "mountains"]
+    },
+    {
+      "id": "roman_qa_012",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Duniya ki sab se lambi nadi kaun si hai?",
+      "expected_language": "either",
+      "expected_keywords": ["Nile", "نیل", "Amazon"],
+      "difficulty": "medium",
+      "tags": ["geography", "rivers"]
+    },
+    {
+      "id": "roman_qa_013",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Allama Iqbal ne kab 'Shikwa' likhi?",
+      "expected_language": "either",
+      "expected_keywords": ["1909", "1911"],
+      "difficulty": "hard",
+      "tags": ["literature", "poetry"]
+    },
+    {
+      "id": "roman_qa_014",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Pakistan mein kitne provinces hain?",
+      "expected_language": "either",
+      "expected_keywords": ["4", "char", "four", "چار"],
+      "difficulty": "easy",
+      "tags": ["geography", "pakistan"]
+    },
+    {
+      "id": "roman_qa_015",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Oxygen ka chemical symbol kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["O"],
+      "difficulty": "easy",
+      "tags": ["science", "chemistry"]
+    },
+    {
+      "id": "roman_qa_016",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Speed of light kitni hai?",
+      "expected_language": "either",
+      "expected_keywords": ["300000", "3", "light"],
+      "difficulty": "hard",
+      "tags": ["science", "physics"]
+    },
+    {
+      "id": "roman_qa_017",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Quran Pak mein kitni sooraten hain?",
+      "expected_language": "either",
+      "expected_keywords": ["114"],
+      "difficulty": "easy",
+      "tags": ["religion", "islam"]
+    },
+    {
+      "id": "roman_qa_018",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Islam ke kitne arkan hain?",
+      "expected_language": "either",
+      "expected_keywords": ["5", "paanch", "five"],
+      "difficulty": "easy",
+      "tags": ["religion", "islam"]
+    },
+    {
+      "id": "roman_qa_019",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "K2 kis mulk mein hai?",
+      "expected_language": "either",
+      "expected_keywords": ["Pakistan", "پاکستان"],
+      "difficulty": "easy",
+      "tags": ["geography", "mountains"]
+    },
+    {
+      "id": "roman_qa_020",
+      "category": "question_answering",
+      "script_type": "roman",
+      "prompt": "Cricket World Cup 1992 kis ne jeeta?",
+      "expected_language": "either",
+      "expected_keywords": ["Pakistan", "پاکستان"],
+      "difficulty": "medium",
+      "tags": ["sports", "cricket"]
+    },
+    {
+      "id": "roman_sum_001",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Ye paragraph summarize karo: Pakistan 1947 mein azad hua. Quaid-e-Azam iske bani the. Lahore Resolution 1940 mein pass hui thi.",
+      "expected_language": "either",
+      "expected_keywords": ["1947", "Quaid", "Pakistan", "1940"],
+      "difficulty": "medium",
+      "tags": ["history", "pakistan"]
+    },
+    {
+      "id": "roman_sum_002",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Is text ka khulaasa do: Cricket ek mashhoor khel hai. Pakistan ne 1992 mein World Cup jeeta. Imran Khan captain the.",
+      "expected_language": "either",
+      "expected_keywords": ["cricket", "1992", "Imran", "Pakistan"],
+      "difficulty": "easy",
+      "tags": ["sports", "cricket"]
+    },
+    {
+      "id": "roman_sum_003",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summarize karo: Allama Iqbal Pakistan ke qaumi shayar hain. Unhon ne Tarana-e-Hindi aur Tarana-e-Milli likhi. Unka intiqaal 1938 mein hua.",
+      "expected_language": "either",
+      "expected_keywords": ["Iqbal", "shayar", "1938"],
+      "difficulty": "medium",
+      "tags": ["literature", "poetry"]
+    },
+    {
+      "id": "roman_sum_004",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Is paragraph ka summary likho: Indus Valley Civilization duniya ki qadeem tareen tehzeebon mein se ek hai. Mohenjo-daro aur Harappa iske mashoor sheher the.",
+      "expected_language": "either",
+      "expected_keywords": ["Indus", "Mohenjo", "Harappa", "civilization"],
+      "difficulty": "medium",
+      "tags": ["history", "ancient"]
+    },
+    {
+      "id": "roman_sum_005",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Mukhtasir bayaan karo: Ramadan ka mahina mubarak hai. Is mein Quran nazil hua. Rozay rakhna farz hai.",
+      "expected_language": "either",
+      "expected_keywords": ["Ramadan", "Quran", "rozay", "roza"],
+      "difficulty": "easy",
+      "tags": ["religion", "islam"]
+    },
+    {
+      "id": "roman_sum_006",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Ye text summarize karo: Mobile phones ne communication ko asaan bana diya hai. Ab log video calls kar sakte hain. Internet bhi mobile par chalti hai.",
+      "expected_language": "either",
+      "expected_keywords": ["mobile", "communication", "internet", "video"],
+      "difficulty": "easy",
+      "tags": ["technology", "communication"]
+    },
+    {
+      "id": "roman_sum_007",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Khulaasa likho: Global warming ek badi problem hai. Temperature barh raha hai. Glacier pighal rahe hain. Samundar ka level barh raha hai.",
+      "expected_language": "either",
+      "expected_keywords": ["global warming", "temperature", "glacier", "samundar"],
+      "difficulty": "medium",
+      "tags": ["environment", "climate"]
+    },
+    {
+      "id": "roman_sum_008",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summarize: Artificial Intelligence machines ko smart banati hai. Machine learning iska hissa hai. ChatGPT AI ka example hai.",
+      "expected_language": "either",
+      "expected_keywords": ["AI", "machine", "learning", "smart"],
+      "difficulty": "medium",
+      "tags": ["technology", "ai"]
+    },
+    {
+      "id": "roman_sum_009",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summary do: Pakistan ki economy agriculture par depend karti hai. Cotton, wheat aur rice important crops hain. Textile industry bhi bari hai.",
+      "expected_language": "either",
+      "expected_keywords": ["economy", "agriculture", "cotton", "textile"],
+      "difficulty": "medium",
+      "tags": ["economics", "pakistan"]
+    },
+    {
+      "id": "roman_sum_010",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Mukhtasir tareen alfaz mein batao: Urdu zaban Hindustan mein paida hui. Farsi, Arabic aur Turkish ka asar hai. Pakistan ki qaumi zaban hai.",
+      "expected_language": "either",
+      "expected_keywords": ["Urdu", "Farsi", "Arabic", "Pakistan"],
+      "difficulty": "easy",
+      "tags": ["language", "urdu"]
+    },
+    {
+      "id": "roman_sum_011",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summarize karo: Tea duniya ki mashhoor drink hai. Pakistan mein chai bohat pee jati hai. Chai mein doodh aur cheeni milai jati hai.",
+      "expected_language": "either",
+      "expected_keywords": ["tea", "chai", "Pakistan", "doodh"],
+      "difficulty": "easy",
+      "tags": ["culture", "food"]
+    },
+    {
+      "id": "roman_sum_012",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Khulaasa do: Solar system mein 8 planets hain. Earth teesra planet hai. Sun sab se bada hai.",
+      "expected_language": "either",
+      "expected_keywords": ["8", "planet", "Earth", "Sun"],
+      "difficulty": "easy",
+      "tags": ["science", "astronomy"]
+    },
+    {
+      "id": "roman_sum_013",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summary likho: Badshahi Masjid Lahore mein hai. Mughal Emperor Aurangzeb ne banwai. 1673 mein mukammal hui.",
+      "expected_language": "either",
+      "expected_keywords": ["Badshahi", "Lahore", "Aurangzeb", "Mughal"],
+      "difficulty": "medium",
+      "tags": ["history", "architecture"]
+    },
+    {
+      "id": "roman_sum_014",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summarize: Karachi Pakistan ka sab se bara sheher hai. Yahan port hai. Business hub hai. Population 20 million se zyada hai.",
+      "expected_language": "either",
+      "expected_keywords": ["Karachi", "bara", "port", "business"],
+      "difficulty": "easy",
+      "tags": ["geography", "pakistan"]
+    },
+    {
+      "id": "roman_sum_015",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Mukhtasir karo: Diabetes ek bimari hai. Sugar level barh jata hai. Exercise aur diet se control hoti hai.",
+      "expected_language": "either",
+      "expected_keywords": ["diabetes", "sugar", "exercise", "diet"],
+      "difficulty": "easy",
+      "tags": ["health", "disease"]
+    },
+    {
+      "id": "roman_sum_016",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summary do: Electric cars future hain. Tesla mashhoor company hai. Environment ke liye achhi hain. Battery se chalti hain.",
+      "expected_language": "either",
+      "expected_keywords": ["electric", "Tesla", "environment", "battery"],
+      "difficulty": "medium",
+      "tags": ["technology", "cars"]
+    },
+    {
+      "id": "roman_sum_017",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Khulaasa likho: Yoga sehat ke liye faida mand hai. Stress kam hota hai. Body flexible hoti hai. Breathing exercises shamil hain.",
+      "expected_language": "either",
+      "expected_keywords": ["yoga", "sehat", "stress", "breathing"],
+      "difficulty": "easy",
+      "tags": ["health", "fitness"]
+    },
+    {
+      "id": "roman_sum_018",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summarize: 5G network naya technology hai. Speed bohat fast hai. Download seconds mein hota hai. Smart cities ke liye zaroori hai.",
+      "expected_language": "either",
+      "expected_keywords": ["5G", "speed", "fast", "smart"],
+      "difficulty": "medium",
+      "tags": ["technology", "network"]
+    },
+    {
+      "id": "roman_sum_019",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Summary do: Biryani mashhoor Pakistani dish hai. Chawal aur gosht se banti hai. Karachi ki biryani famous hai.",
+      "expected_language": "either",
+      "expected_keywords": ["biryani", "chawal", "gosht", "Karachi"],
+      "difficulty": "easy",
+      "tags": ["culture", "food"]
+    },
+    {
+      "id": "roman_sum_020",
+      "category": "summarization",
+      "script_type": "roman",
+      "prompt": "Mukhtasir bayaan karo: Faisal Masjid Islamabad mein hai. Turkish architect ne design ki. Asia ki bari masjid hai.",
+      "expected_language": "either",
+      "expected_keywords": ["Faisal", "Islamabad", "Turkish", "masjid"],
+      "difficulty": "easy",
+      "tags": ["architecture", "pakistan"]
+    },
+    {
+      "id": "roman_trans_001",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Ye English sentence Urdu mein translate karo: The weather is very beautiful today.",
+      "expected_language": "either",
+      "expected_keywords": ["mausam", "موسم", "khubsurat", "خوبصورت", "aaj", "آج"],
+      "difficulty": "easy",
+      "tags": ["translation", "weather"]
+    },
+    {
+      "id": "roman_trans_002",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "English to Urdu translate karo: I am learning to speak Urdu.",
+      "expected_language": "either",
+      "expected_keywords": ["seekh", "سیکھ", "Urdu", "اردو", "bolna", "بولنا"],
+      "difficulty": "easy",
+      "tags": ["translation", "language"]
+    },
+    {
+      "id": "roman_trans_003",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Translate into Urdu: Education is the key to success.",
+      "expected_language": "either",
+      "expected_keywords": ["taleem", "تعلیم", "kamyabi", "کامیابی", "chaabi", "کنجی"],
+      "difficulty": "easy",
+      "tags": ["translation", "education"]
+    },
+    {
+      "id": "roman_trans_004",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Is sentence ko Urdu mein likho: Pakistan is a beautiful country.",
+      "expected_language": "either",
+      "expected_keywords": ["Pakistan", "پاکستان", "khubsurat", "خوبصورت", "mulk", "ملک"],
+      "difficulty": "easy",
+      "tags": ["translation", "pakistan"]
+    },
+    {
+      "id": "roman_trans_005",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Urdu mein translate karo: My mother makes delicious food.",
+      "expected_language": "either",
+      "expected_keywords": ["ammi", "ماں", "khana", "کھانا", "mazaydar", "لذیذ"],
+      "difficulty": "easy",
+      "tags": ["translation", "family"]
+    },
+    {
+      "id": "roman_trans_006",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "English to Urdu: Time is precious, do not waste it.",
+      "expected_language": "either",
+      "expected_keywords": ["waqt", "وقت", "qeemti", "قیمتی", "zaya", "ضائع"],
+      "difficulty": "medium",
+      "tags": ["translation", "wisdom"]
+    },
+    {
+      "id": "roman_trans_007",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Translate: Hard work is the secret of success.",
+      "expected_language": "either",
+      "expected_keywords": ["mehnat", "محنت", "kamyabi", "کامیابی", "raaz", "راز"],
+      "difficulty": "easy",
+      "tags": ["translation", "motivation"]
+    },
+    {
+      "id": "roman_trans_008",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Is ko Urdu mein badlo: Books are our best friends.",
+      "expected_language": "either",
+      "expected_keywords": ["kitabein", "کتابیں", "dost", "دوست"],
+      "difficulty": "easy",
+      "tags": ["translation", "education"]
+    },
+    {
+      "id": "roman_trans_009",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "English to Urdu translate karo: I love to travel and explore new places.",
+      "expected_language": "either",
+      "expected_keywords": ["safar", "سفر", "naye", "نئی", "jagah", "جگہ"],
+      "difficulty": "medium",
+      "tags": ["translation", "travel"]
+    },
+    {
+      "id": "roman_trans_010",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Urdu mein likho: Health is wealth.",
+      "expected_language": "either",
+      "expected_keywords": ["sehat", "صحت", "daulat", "دولت"],
+      "difficulty": "easy",
+      "tags": ["translation", "health"]
+    },
+    {
+      "id": "roman_trans_011",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Translate to Urdu: The sun rises in the east and sets in the west.",
+      "expected_language": "either",
+      "expected_keywords": ["suraj", "سورج", "mashriق", "مشرق", "maghrib", "مغرب"],
+      "difficulty": "medium",
+      "tags": ["translation", "science"]
+    },
+    {
+      "id": "roman_trans_012",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Ye sentence Urdu mein karo: Honesty is the best policy.",
+      "expected_language": "either",
+      "expected_keywords": ["imaandari", "ایمانداری", "sachhai", "سچائی"],
+      "difficulty": "easy",
+      "tags": ["translation", "values"]
+    },
+    {
+      "id": "roman_trans_013",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Translate into Urdu: Knowledge is power.",
+      "expected_language": "either",
+      "expected_keywords": ["ilm", "علم", "taqat", "طاقت"],
+      "difficulty": "easy",
+      "tags": ["translation", "education"]
+    },
+    {
+      "id": "roman_trans_014",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "English se Urdu: Practice makes perfect.",
+      "expected_language": "either",
+      "expected_keywords": ["mashq", "مشق", "kamil", "کامل", "practice"],
+      "difficulty": "medium",
+      "tags": ["translation", "learning"]
+    },
+    {
+      "id": "roman_trans_015",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Translate: Where there is a will, there is a way.",
+      "expected_language": "either",
+      "expected_keywords": ["irada", "ارادہ", "raasta", "راستہ", "hosla"],
+      "difficulty": "medium",
+      "tags": ["translation", "motivation"]
+    },
+    {
+      "id": "roman_trans_016",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Urdu mein badlo: Respect your elders.",
+      "expected_language": "either",
+      "expected_keywords": ["izzat", "عزت", "buzurg", "بزرگ", "badon"],
+      "difficulty": "easy",
+      "tags": ["translation", "values"]
+    },
+    {
+      "id": "roman_trans_017",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "English to Urdu: The earth revolves around the sun.",
+      "expected_language": "either",
+      "expected_keywords": ["zameen", "زمین", "suraj", "سورج", "chakkar", "چکر"],
+      "difficulty": "medium",
+      "tags": ["translation", "science"]
+    },
+    {
+      "id": "roman_trans_018",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Translate karo: Actions speak louder than words.",
+      "expected_language": "either",
+      "expected_keywords": ["amal", "عمل", "alfaz", "الفاظ", "kaam"],
+      "difficulty": "medium",
+      "tags": ["translation", "wisdom"]
+    },
+    {
+      "id": "roman_trans_019",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Urdu mein: Unity is strength.",
+      "expected_language": "either",
+      "expected_keywords": ["ittehad", "اتحاد", "taqat", "طاقت"],
+      "difficulty": "easy",
+      "tags": ["translation", "values"]
+    },
+    {
+      "id": "roman_trans_020",
+      "category": "translation",
+      "script_type": "roman",
+      "prompt": "Translate to Urdu: A friend in need is a friend indeed.",
+      "expected_language": "either",
+      "expected_keywords": ["dost", "دوست", "waqt", "وقت", "mushkil"],
+      "difficulty": "medium",
+      "tags": ["translation", "friendship"]
+    },
+    {
+      "id": "roman_gen_001",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Eid ul Fitr ke baare mein aik paragraph likho.",
+      "expected_language": "either",
+      "expected_keywords": ["Eid", "Ramadan", "namaz", "khushi"],
+      "difficulty": "medium",
+      "tags": ["religion", "culture"]
+    },
+    {
+      "id": "roman_gen_002",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Meri pasandida kitab ke baare mein likho.",
+      "expected_language": "either",
+      "expected_keywords": ["kitab", "parh", "kahani", "story"],
+      "difficulty": "easy",
+      "tags": ["literature", "personal"]
+    },
+    {
+      "id": "roman_gen_003",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Pakistan ka national anthem ke baare mein kuch likho.",
+      "expected_language": "either",
+      "expected_keywords": ["qaumi", "tarana", "Pakistan", "anthem"],
+      "difficulty": "medium",
+      "tags": ["patriotism", "pakistan"]
+    },
+    {
+      "id": "roman_gen_004",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Climate change ka aik short essay likho.",
+      "expected_language": "either",
+      "expected_keywords": ["climate", "temperature", "environment", "pollution"],
+      "difficulty": "medium",
+      "tags": ["environment", "science"]
+    },
+    {
+      "id": "roman_gen_005",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Apni achi yaad describe karo.",
+      "expected_language": "either",
+      "expected_keywords": ["yaad", "khushi", "waqt", "moment"],
+      "difficulty": "easy",
+      "tags": ["personal", "memory"]
+    },
+    {
+      "id": "roman_gen_006",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Social media ke faide aur nuqsanat batao.",
+      "expected_language": "either",
+      "expected_keywords": ["social media", "faida", "nuqsan", "connection"],
+      "difficulty": "medium",
+      "tags": ["technology", "society"]
+    },
+    {
+      "id": "roman_gen_007",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Spring season ke baare mein paragraph likho.",
+      "expected_language": "either",
+      "expected_keywords": ["bahar", "spring", "phool", "mausam"],
+      "difficulty": "easy",
+      "tags": ["nature", "seasons"]
+    },
+    {
+      "id": "roman_gen_008",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Technology ka humari zindagi par asar describe karo.",
+      "expected_language": "either",
+      "expected_keywords": ["technology", "zindagi", "asaan", "mobile"],
+      "difficulty": "medium",
+      "tags": ["technology", "lifestyle"]
+    },
+    {
+      "id": "roman_gen_009",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Apne pasandida khel ke baare mein likho.",
+      "expected_language": "either",
+      "expected_keywords": ["khel", "khelna", "team", "match"],
+      "difficulty": "easy",
+      "tags": ["sports", "personal"]
+    },
+    {
+      "id": "roman_gen_010",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Online shopping ke faide aur problems batao.",
+      "expected_language": "either",
+      "expected_keywords": ["online", "shopping", "asaan", "delivery"],
+      "difficulty": "medium",
+      "tags": ["technology", "commerce"]
+    },
+    {
+      "id": "roman_gen_011",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Quaid-e-Azam ki leadership qualities describe karo.",
+      "expected_language": "either",
+      "expected_keywords": ["Quaid", "leader", "Pakistan", "vision"],
+      "difficulty": "medium",
+      "tags": ["history", "leadership"]
+    },
+    {
+      "id": "roman_gen_012",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Aik kahani likho jo gaon mein hoti hai.",
+      "expected_language": "either",
+      "expected_keywords": ["gaon", "kahani", "log", "kheti"],
+      "difficulty": "medium",
+      "tags": ["creative", "story"]
+    },
+    {
+      "id": "roman_gen_013",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Women education ki ahmiyat par essay likho.",
+      "expected_language": "either",
+      "expected_keywords": ["women", "taleem", "education", "society"],
+      "difficulty": "medium",
+      "tags": ["education", "society"]
+    },
+    {
+      "id": "roman_gen_014",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Lahore sheher ki khasusiyaat batao.",
+      "expected_language": "either",
+      "expected_keywords": ["Lahore", "sheher", "culture", "food"],
+      "difficulty": "medium",
+      "tags": ["geography", "culture"]
+    },
+    {
+      "id": "roman_gen_015",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Electric vehicles ke baare mein apna nazariya likho.",
+      "expected_language": "either",
+      "expected_keywords": ["electric", "gari", "environment", "future"],
+      "difficulty": "medium",
+      "tags": ["technology", "environment"]
+    },
+    {
+      "id": "roman_gen_016",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Coronavirus pandemic se seekhi hui baatein likho.",
+      "expected_language": "either",
+      "expected_keywords": ["corona", "pandemic", "health", "seekha"],
+      "difficulty": "medium",
+      "tags": ["health", "society"]
+    },
+    {
+      "id": "roman_gen_017",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Apne ghar ki tasveer words mein describe karo.",
+      "expected_language": "either",
+      "expected_keywords": ["ghar", "kamra", "family", "garden"],
+      "difficulty": "easy",
+      "tags": ["personal", "description"]
+    },
+    {
+      "id": "roman_gen_018",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Freelancing ke faide aur challenges batao.",
+      "expected_language": "either",
+      "expected_keywords": ["freelancing", "kaam", "online", "income"],
+      "difficulty": "medium",
+      "tags": ["career", "technology"]
+    },
+    {
+      "id": "roman_gen_019",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "14 August Independence Day ke baare mein likho.",
+      "expected_language": "either",
+      "expected_keywords": ["14 August", "azadi", "Pakistan", "jashn"],
+      "difficulty": "easy",
+      "tags": ["patriotism", "pakistan"]
+    },
+    {
+      "id": "roman_gen_020",
+      "category": "text_generation",
+      "script_type": "roman",
+      "prompt": "Healthy lifestyle ke tips share karo.",
+      "expected_language": "either",
+      "expected_keywords": ["health", "exercise", "khana", "sleep"],
+      "difficulty": "easy",
+      "tags": ["health", "lifestyle"]
+    },
+    {
+      "id": "roman_math_001",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar 5 apples ki qeemat 100 rupees hai, toh 12 apples ki qeemat kya hogi?",
+      "expected_language": "either",
+      "expected_keywords": ["240", "rupees"],
+      "difficulty": "easy",
+      "tags": ["math", "arithmetic"]
+    },
+    {
+      "id": "roman_math_002",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Ahmed ke paas 500 rupees hain. Usne 150 rupees ki notebook aur 200 rupees ki book kharidi. Ab uske paas kitne rupees hain?",
+      "expected_language": "either",
+      "expected_keywords": ["150", "rupees"],
+      "difficulty": "easy",
+      "tags": ["math", "word_problem"]
+    },
+    {
+      "id": "roman_math_003",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Aik class mein 30 students hain. Agar 40% larkiyan hain, toh kitne larke hain?",
+      "expected_language": "either",
+      "expected_keywords": ["18", "larke"],
+      "difficulty": "medium",
+      "tags": ["math", "percentage"]
+    },
+    {
+      "id": "roman_math_004",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Train 90 km/h ki speed se chal rahi hai. 3 ghante mein kitna fasla tay karegi?",
+      "expected_language": "either",
+      "expected_keywords": ["270", "km"],
+      "difficulty": "easy",
+      "tags": ["math", "speed"]
+    },
+    {
+      "id": "roman_math_005",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Rectangle ki length 15 cm hai aur width 8 cm hai. Iska area kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["120", "cm"],
+      "difficulty": "easy",
+      "tags": ["math", "geometry"]
+    },
+    {
+      "id": "roman_math_006",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar x + 7 = 15 hai, toh x ki value kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["8"],
+      "difficulty": "easy",
+      "tags": ["math", "algebra"]
+    },
+    {
+      "id": "roman_math_007",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "12 ka 25% kitna hota hai?",
+      "expected_language": "either",
+      "expected_keywords": ["3"],
+      "difficulty": "easy",
+      "tags": ["math", "percentage"]
+    },
+    {
+      "id": "roman_math_008",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "3 friends ne milkar 900 rupees ka khana khaya. Barabar divide karen toh har aik ko kitna dena hoga?",
+      "expected_language": "either",
+      "expected_keywords": ["300", "rupees"],
+      "difficulty": "easy",
+      "tags": ["math", "division"]
+    },
+    {
+      "id": "roman_math_009",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar 1 dozen eggs ki qeemat 300 rupees hai, toh 5 eggs ki qeemat kya hogi?",
+      "expected_language": "either",
+      "expected_keywords": ["125", "rupees"],
+      "difficulty": "medium",
+      "tags": ["math", "proportion"]
+    },
+    {
+      "id": "roman_math_010",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Circle ka radius 7 cm hai. Iska area kya hai? (π = 22/7 use karo)",
+      "expected_language": "either",
+      "expected_keywords": ["154", "cm"],
+      "difficulty": "medium",
+      "tags": ["math", "geometry"]
+    },
+    {
+      "id": "roman_math_011",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "2, 4, 6, 8, ___ sequence mein agla number kya hoga?",
+      "expected_language": "either",
+      "expected_keywords": ["10"],
+      "difficulty": "easy",
+      "tags": ["math", "sequence"]
+    },
+    {
+      "id": "roman_math_012",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Shopkeeper ne 1000 rupees ki cheez 1200 rupees mein bechi. Kitne percent profit hua?",
+      "expected_language": "either",
+      "expected_keywords": ["20", "percent"],
+      "difficulty": "medium",
+      "tags": ["math", "profit"]
+    },
+    {
+      "id": "roman_math_013",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar bus subha 8 baje chalti hai aur 5 ghante ka safar hai, toh kab pahunchegi?",
+      "expected_language": "either",
+      "expected_keywords": ["1", "dopahar", "1:00"],
+      "difficulty": "easy",
+      "tags": ["math", "time"]
+    },
+    {
+      "id": "roman_math_014",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "3^4 (3 ki power 4) kitna hota hai?",
+      "expected_language": "either",
+      "expected_keywords": ["81"],
+      "difficulty": "easy",
+      "tags": ["math", "exponent"]
+    },
+    {
+      "id": "roman_math_015",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "144 ka square root kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["12"],
+      "difficulty": "easy",
+      "tags": ["math", "root"]
+    },
+    {
+      "id": "roman_math_016",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "5 workers aik kaam 10 din mein karte hain. 10 workers kitne din mein karenge?",
+      "expected_language": "either",
+      "expected_keywords": ["5", "din"],
+      "difficulty": "medium",
+      "tags": ["math", "work"]
+    },
+    {
+      "id": "roman_math_017",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Average nikalo: 45, 55, 60, 40, 50",
+      "expected_language": "either",
+      "expected_keywords": ["50"],
+      "difficulty": "easy",
+      "tags": ["math", "average"]
+    },
+    {
+      "id": "roman_math_018",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar 2x - 5 = 11 hai, toh x ki value kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["8"],
+      "difficulty": "medium",
+      "tags": ["math", "algebra"]
+    },
+    {
+      "id": "roman_math_019",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "1 se 10 tak ke numbers ka sum kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["55"],
+      "difficulty": "easy",
+      "tags": ["math", "sum"]
+    },
+    {
+      "id": "roman_math_020",
+      "category": "mathematical_reasoning",
+      "script_type": "roman",
+      "prompt": "Compound interest: 1000 rupees ko 10% interest par 2 saal ke baad kitna hoga?",
+      "expected_language": "either",
+      "expected_keywords": ["1210", "rupees"],
+      "difficulty": "hard",
+      "tags": ["math", "interest"]
+    },
+    {
+      "id": "roman_cs_001",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar baarish ho rahi ho toh bahar jaate waqt kya lena chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["chhatri", "umbrella", "raincoat", "چھتری"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "weather"]
+    },
+    {
+      "id": "roman_cs_002",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Khana pakaane ke liye pehle kya karna chahiye - ingredients kaatna ya gas jalana?",
+      "expected_language": "either",
+      "expected_keywords": ["ingredients", "kaatna", "pehle", "cut"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "cooking"]
+    },
+    {
+      "id": "roman_cs_003",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar phone ki battery kam ho toh kya karna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["charge", "charger", "battery"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "technology"]
+    },
+    {
+      "id": "roman_cs_004",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Road cross karte waqt pehle kya dekhna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["traffic", "right", "left", "gaari"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "safety"]
+    },
+    {
+      "id": "roman_cs_005",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar kisi ko bukhar ho toh kya karna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["doctor", "dawai", "medicine", "araam"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "health"]
+    },
+    {
+      "id": "roman_cs_006",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Ghar mein aag lagne par sabse pehle kya karna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["bahar", "nikalna", "fire", "rescue", "call"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "emergency"]
+    },
+    {
+      "id": "roman_cs_007",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Exam se aik raat pehle kya karna chahiye - party ya revision?",
+      "expected_language": "either",
+      "expected_keywords": ["revision", "parhai", "study", "tayyari"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "education"]
+    },
+    {
+      "id": "roman_cs_008",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar fridge mein se buri smell aa rahi ho toh kya karna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["clean", "saaf", "khana", "hatao"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "home"]
+    },
+    {
+      "id": "roman_cs_009",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Interview mein jaane se pehle kya karna zaroori hai?",
+      "expected_language": "either",
+      "expected_keywords": ["tayari", "dress", "research", "practice"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "career"]
+    },
+    {
+      "id": "roman_cs_010",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Neend na aane par kya karna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["phone", "dark", "relax", "warm milk", "araam"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "health"]
+    },
+    {
+      "id": "roman_cs_011",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Gaari chalate waqt seatbelt kyun zaroori hai?",
+      "expected_language": "either",
+      "expected_keywords": ["safety", "hifazat", "accident", "bachao"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "safety"]
+    },
+    {
+      "id": "roman_cs_012",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Plants ko zinda rakhne ke liye kya chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["pani", "water", "sunlight", "dhoop"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "nature"]
+    },
+    {
+      "id": "roman_cs_013",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar password bhool jayen toh kya karein?",
+      "expected_language": "either",
+      "expected_keywords": ["reset", "forgot", "email", "recover"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "technology"]
+    },
+    {
+      "id": "roman_cs_014",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Subha jaldi uthne ke liye raat ko kya karna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["jaldi", "sona", "alarm", "sleep"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "routine"]
+    },
+    {
+      "id": "roman_cs_015",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar koi aapko online scam kar raha ho toh kya karein?",
+      "expected_language": "either",
+      "expected_keywords": ["block", "report", "ignore", "police"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "safety"]
+    },
+    {
+      "id": "roman_cs_016",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Ice cream ko freezer se bahar chor dein toh kya hoga?",
+      "expected_language": "either",
+      "expected_keywords": ["pighal", "melt", "liquid"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "science"]
+    },
+    {
+      "id": "roman_cs_017",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Flight miss hone se bachne ke liye kya karna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["jaldi", "early", "pahle", "time"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "travel"]
+    },
+    {
+      "id": "roman_cs_018",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar bijli chali jaye toh pehle kya check karein?",
+      "expected_language": "either",
+      "expected_keywords": ["fuse", "switch", "meter", "neighbor"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "home"]
+    },
+    {
+      "id": "roman_cs_019",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Mobile phone pani mein gir jaye toh kya karein?",
+      "expected_language": "either",
+      "expected_keywords": ["off", "sukha", "rice", "dry"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "technology"]
+    },
+    {
+      "id": "roman_cs_020",
+      "category": "commonsense_reasoning",
+      "script_type": "roman",
+      "prompt": "Agar doodh ubalne lage toh kya karna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["gas", "kam", "hilao", "utaro"],
+      "difficulty": "easy",
+      "tags": ["commonsense", "cooking"]
+    },
+    {
+      "id": "roman_inst_001",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Sirf aik lafz mein jawab do: Pakistan ki qaumi zaban?",
+      "expected_language": "either",
+      "expected_keywords": ["Urdu", "اردو"],
+      "difficulty": "easy",
+      "tags": ["instruction", "concise"]
+    },
+    {
+      "id": "roman_inst_002",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "3 fruits ke naam likho, comma se alag karke.",
+      "expected_language": "either",
+      "expected_keywords": ["apple", "banana", "mango", "orange", "seb", "aam", "kela"],
+      "difficulty": "easy",
+      "tags": ["instruction", "list"]
+    },
+    {
+      "id": "roman_inst_003",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Haan ya Nahi mein jawab do: Kya earth flat hai?",
+      "expected_language": "either",
+      "expected_keywords": ["Nahi", "No", "نہیں"],
+      "difficulty": "easy",
+      "tags": ["instruction", "binary"]
+    },
+    {
+      "id": "roman_inst_004",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Sirf number likho: 5 aur 7 ka sum kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["12"],
+      "difficulty": "easy",
+      "tags": ["instruction", "math"]
+    },
+    {
+      "id": "roman_inst_005",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Exactly 5 words mein batao: Pakistan kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["Pakistan", "mulk", "country"],
+      "difficulty": "medium",
+      "tags": ["instruction", "constraint"]
+    },
+    {
+      "id": "roman_inst_006",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Capital letters mein likho: pakistan zindabad",
+      "expected_language": "either",
+      "expected_keywords": ["PAKISTAN", "ZINDABAD"],
+      "difficulty": "easy",
+      "tags": ["instruction", "format"]
+    },
+    {
+      "id": "roman_inst_007",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Reverse order mein likho: 1 2 3 4 5",
+      "expected_language": "either",
+      "expected_keywords": ["5", "4", "3", "2", "1"],
+      "difficulty": "easy",
+      "tags": ["instruction", "order"]
+    },
+    {
+      "id": "roman_inst_008",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Bullet points mein 4 colors likho.",
+      "expected_language": "either",
+      "expected_keywords": ["red", "blue", "green", "laal", "neela", "hara"],
+      "difficulty": "easy",
+      "tags": ["instruction", "format"]
+    },
+    {
+      "id": "roman_inst_009",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Aik sentence mein batao: Pani kyun zaroori hai?",
+      "expected_language": "either",
+      "expected_keywords": ["pani", "zindagi", "life", "zaroori"],
+      "difficulty": "easy",
+      "tags": ["instruction", "concise"]
+    },
+    {
+      "id": "roman_inst_010",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Step-by-step batao: Chai kaise banate hain? (Max 4 steps)",
+      "expected_language": "either",
+      "expected_keywords": ["pani", "water", "chai patti", "doodh", "ubaal"],
+      "difficulty": "medium",
+      "tags": ["instruction", "steps"]
+    },
+    {
+      "id": "roman_inst_011",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Neeche diye gaye lafzon ko alphabetical order mein likho: zebra, apple, mango",
+      "expected_language": "either",
+      "expected_keywords": ["apple", "mango", "zebra"],
+      "difficulty": "easy",
+      "tags": ["instruction", "order"]
+    },
+    {
+      "id": "roman_inst_012",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "True ya False: Suraj maghrib se nikalta hai.",
+      "expected_language": "either",
+      "expected_keywords": ["False", "Ghalat", "غلط"],
+      "difficulty": "easy",
+      "tags": ["instruction", "binary"]
+    },
+    {
+      "id": "roman_inst_013",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Sirf Urdu script mein likho: Hello, how are you?",
+      "expected_language": "urdu",
+      "expected_keywords": ["ہیلو", "کیسے", "آپ"],
+      "difficulty": "medium",
+      "tags": ["instruction", "script"]
+    },
+    {
+      "id": "roman_inst_014",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Is sentence ko question mein badlo: Ali school jata hai.",
+      "expected_language": "either",
+      "expected_keywords": ["kya", "Ali", "school", "?"],
+      "difficulty": "easy",
+      "tags": ["instruction", "grammar"]
+    },
+    {
+      "id": "roman_inst_015",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Negative sentence banao: Main khush hoon.",
+      "expected_language": "either",
+      "expected_keywords": ["nahi", "نہیں", "not"],
+      "difficulty": "easy",
+      "tags": ["instruction", "grammar"]
+    },
+    {
+      "id": "roman_inst_016",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Aik emoji ke saath jawab do: Tumhara mood kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["😊", "😀", "🙂", "happy", "khush"],
+      "difficulty": "easy",
+      "tags": ["instruction", "emoji"]
+    },
+    {
+      "id": "roman_inst_017",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Table format mein do: Pakistan ke 4 provinces aur unke capitals.",
+      "expected_language": "either",
+      "expected_keywords": ["Punjab", "Lahore", "Sindh", "Karachi"],
+      "difficulty": "medium",
+      "tags": ["instruction", "format"]
+    },
+    {
+      "id": "roman_inst_018",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Rhyming words do: Ghar ke saath 3 rhyming words.",
+      "expected_language": "either",
+      "expected_keywords": ["car", "star", "tar", "par"],
+      "difficulty": "medium",
+      "tags": ["instruction", "language"]
+    },
+    {
+      "id": "roman_inst_019",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "Maximum 10 words mein: AI kya hai?",
+      "expected_language": "either",
+      "expected_keywords": ["AI", "artificial", "intelligence", "machine"],
+      "difficulty": "medium",
+      "tags": ["instruction", "constraint"]
+    },
+    {
+      "id": "roman_inst_020",
+      "category": "instruction_following",
+      "script_type": "roman",
+      "prompt": "JSON format mein apna naam aur profession likho.",
+      "expected_language": "either",
+      "expected_keywords": ["{", "}", "name", "profession"],
+      "difficulty": "medium",
+      "tags": ["instruction", "format"]
+    },
+    {
+      "id": "roman_conv_001",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Assalam o Alaikum! Aap kaise hain?",
+      "expected_language": "either",
+      "expected_keywords": ["Walaikum", "theek", "alhamdulillah", "acha"],
+      "difficulty": "easy",
+      "tags": ["conversation", "greeting"]
+    },
+    {
+      "id": "roman_conv_002",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Mujhe Urdu seekhni hai. Kya aap madad kar sakte ho?",
+      "expected_language": "either",
+      "expected_keywords": ["haan", "zaroor", "madad", "seekh"],
+      "difficulty": "easy",
+      "tags": ["conversation", "help"]
+    },
+    {
+      "id": "roman_conv_003",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Aaj mausam kaisa hai tumhare khayal mein?",
+      "expected_language": "either",
+      "expected_keywords": ["mausam", "weather", "acha", "garam", "thanda"],
+      "difficulty": "easy",
+      "tags": ["conversation", "weather"]
+    },
+    {
+      "id": "roman_conv_004",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Tumhari pasandida movie kaun si hai?",
+      "expected_language": "either",
+      "expected_keywords": ["movie", "film", "pasand"],
+      "difficulty": "easy",
+      "tags": ["conversation", "entertainment"]
+    },
+    {
+      "id": "roman_conv_005",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Main bohat stressed hoon. Kya karon?",
+      "expected_language": "either",
+      "expected_keywords": ["relax", "araam", "tension", "walk", "exercise"],
+      "difficulty": "easy",
+      "tags": ["conversation", "advice"]
+    },
+    {
+      "id": "roman_conv_006",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Aaj mera birthday hai!",
+      "expected_language": "either",
+      "expected_keywords": ["mubarak", "happy", "birthday", "congratulations"],
+      "difficulty": "easy",
+      "tags": ["conversation", "celebration"]
+    },
+    {
+      "id": "roman_conv_007",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Kya tum mujhe aik mazak suna sakte ho?",
+      "expected_language": "either",
+      "expected_keywords": ["joke", "mazak", "haha", "funny"],
+      "difficulty": "easy",
+      "tags": ["conversation", "humor"]
+    },
+    {
+      "id": "roman_conv_008",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Main naya job dhundh raha hoon. Koi tips?",
+      "expected_language": "either",
+      "expected_keywords": ["CV", "resume", "LinkedIn", "apply", "interview"],
+      "difficulty": "medium",
+      "tags": ["conversation", "career"]
+    },
+    {
+      "id": "roman_conv_009",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Tumhara weekend kaisa guzra?",
+      "expected_language": "either",
+      "expected_keywords": ["acha", "weekend", "araam", "ghar"],
+      "difficulty": "easy",
+      "tags": ["conversation", "casual"]
+    },
+    {
+      "id": "roman_conv_010",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Main Lahore travel kar raha hoon. Kya dekhna chahiye?",
+      "expected_language": "either",
+      "expected_keywords": ["Lahore", "Badshahi", "food", "Minar", "Fort"],
+      "difficulty": "medium",
+      "tags": ["conversation", "travel"]
+    },
+    {
+      "id": "roman_conv_011",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Shukriya bohat bohat! Aap ne meri madad ki.",
+      "expected_language": "either",
+      "expected_keywords": ["welcome", "khushi", "anytime"],
+      "difficulty": "easy",
+      "tags": ["conversation", "gratitude"]
+    },
+    {
+      "id": "roman_conv_012",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Main udaas hoon aaj. Kuch achi baat batao.",
+      "expected_language": "either",
+      "expected_keywords": ["hosla", "achi", "hope", "behtar"],
+      "difficulty": "easy",
+      "tags": ["conversation", "emotional"]
+    },
+    {
+      "id": "roman_conv_013",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Ramadan mubarak! Kaise guzar raha hai?",
+      "expected_language": "either",
+      "expected_keywords": ["Ramadan", "mubarak", "roza", "alhamdulillah"],
+      "difficulty": "easy",
+      "tags": ["conversation", "religious"]
+    },
+    {
+      "id": "roman_conv_014",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Acha, ab mujhe jaana hoga. Khuda hafiz!",
+      "expected_language": "either",
+      "expected_keywords": ["Khuda hafiz", "Allah hafiz", "bye", "milte"],
+      "difficulty": "easy",
+      "tags": ["conversation", "farewell"]
+    },
+    {
+      "id": "roman_conv_015",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Apne baare mein kuch batao. Tum kaun ho?",
+      "expected_language": "either",
+      "expected_keywords": ["AI", "assistant", "madad", "help"],
+      "difficulty": "easy",
+      "tags": ["conversation", "introduction"]
+    },
+    {
+      "id": "roman_conv_016",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Kya tum Urdu poetry suna sakte ho?",
+      "expected_language": "either",
+      "expected_keywords": ["shayari", "poetry", "ghazal", "sher"],
+      "difficulty": "medium",
+      "tags": ["conversation", "culture"]
+    },
+    {
+      "id": "roman_conv_017",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Dinner mein kya banana chahiye tonight?",
+      "expected_language": "either",
+      "expected_keywords": ["biryani", "khana", "chicken", "recipe"],
+      "difficulty": "easy",
+      "tags": ["conversation", "food"]
+    },
+    {
+      "id": "roman_conv_018",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Mujhe programming seekhni hai. Kahan se shuru karun?",
+      "expected_language": "either",
+      "expected_keywords": ["Python", "programming", "course", "practice"],
+      "difficulty": "medium",
+      "tags": ["conversation", "learning"]
+    },
+    {
+      "id": "roman_conv_019",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Pakistan cricket match ke baare mein kya khayal hai?",
+      "expected_language": "either",
+      "expected_keywords": ["cricket", "team", "match", "khel"],
+      "difficulty": "easy",
+      "tags": ["conversation", "sports"]
+    },
+    {
+      "id": "roman_conv_020",
+      "category": "conversation",
+      "script_type": "roman",
+      "prompt": "Bohut din ho gaye baat kiye hue. Kaisa chal raha hai sab?",
+      "expected_language": "either",
+      "expected_keywords": ["theek", "acha", "sab", "alhamdulillah"],
+      "difficulty": "easy",
+      "tags": ["conversation", "reconnect"]
+    }
+  ]
+}

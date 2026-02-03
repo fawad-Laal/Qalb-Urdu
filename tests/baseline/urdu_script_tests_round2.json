@@ -1,0 +1,1612 @@
+{
+  "name": "Urdu Script Baseline Tests - Round 3",
+  "description": "160 test cases in Urdu Nastaliq script across 8 categories (20 each) - Fixed confusing math tests",
+  "version": "3.0.0",
+  "script_type": "urdu",
+  "round": 3,
+  "changes_from_round2": [
+    "Fixed urdu_math_002: Changed ambiguous 'بارہ منفی سات' to clearer 'بارہ میں سے سات نکالیں'"
+  ],
+  "test_cases": [
+    {
+      "id": "urdu_qa_001",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "پاکستان کا دارالحکومت کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["اسلام آباد", "Islamabad"],
+      "difficulty": "easy",
+      "tags": ["geography", "pakistan"]
+    },
+    {
+      "id": "urdu_qa_002",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "سورج کس سمت سے طلوع ہوتا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["مشرق", "پورب", "east"],
+      "difficulty": "easy",
+      "tags": ["science", "basic"]
+    },
+    {
+      "id": "urdu_qa_003",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "پانی کا کیمیائی فارمولا کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["H2O", "ایچ ٹو او", "ایچ 2 او", "H₂O"],
+      "difficulty": "easy",
+      "tags": ["science", "chemistry"]
+    },
+    {
+      "id": "urdu_qa_004",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "قائداعظم محمد علی جناح کی تاریخ پیدائش کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["1876", "دسمبر", "25", "December"],
+      "difficulty": "medium",
+      "tags": ["history", "pakistan"]
+    },
+    {
+      "id": "urdu_qa_005",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "اردو زبان کی سرکاری حیثیت کب ملی؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["1947", "1948", "1949", "پاکستان"],
+      "difficulty": "medium",
+      "tags": ["history", "language"]
+    },
+    {
+      "id": "urdu_qa_006",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "زمین سورج کے گرد کتنے دنوں میں چکر لگاتی ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["365", "سال", "تین سو پینسٹھ"],
+      "difficulty": "easy",
+      "tags": ["science", "astronomy"]
+    },
+    {
+      "id": "urdu_qa_007",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "انسانی جسم میں کتنی ہڈیاں ہوتی ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["206", "دو سو چھ"],
+      "difficulty": "medium",
+      "tags": ["science", "biology"]
+    },
+    {
+      "id": "urdu_qa_008",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "پاکستان کے پہلے وزیراعظم کون تھے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["لیاقت علی خان", "Liaquat Ali Khan"],
+      "difficulty": "medium",
+      "tags": ["history", "pakistan"]
+    },
+    {
+      "id": "urdu_qa_009",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "ہفتے میں کتنے دن ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["سات", "7", "seven"],
+      "difficulty": "easy",
+      "tags": ["basic", "time"]
+    },
+    {
+      "id": "urdu_qa_010",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "دنیا کا سب سے بڑا صحرا کون سا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["صحارا", "افریقہ", "Sahara"],
+      "difficulty": "medium",
+      "tags": ["geography", "world"]
+    },
+    {
+      "id": "urdu_qa_011",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "چاند زمین کے گرد کتنے دنوں میں چکر لگاتا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["27", "28", "29", "ستائیس", "اٹھائیس"],
+      "difficulty": "medium",
+      "tags": ["science", "astronomy"]
+    },
+    {
+      "id": "urdu_qa_012",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "پاکستان کا قومی پھول کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["یاسمین", "چنبیلی", "jasmine"],
+      "difficulty": "easy",
+      "tags": ["pakistan", "national"]
+    },
+    {
+      "id": "urdu_qa_013",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "پاکستان کا قومی جانور کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["مارخور", "Markhor"],
+      "difficulty": "easy",
+      "tags": ["pakistan", "national"]
+    },
+    {
+      "id": "urdu_qa_014",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "علامہ اقبال نے خطبہ الہ آباد کب دیا؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["1930", "انیس سو تیس"],
+      "difficulty": "hard",
+      "tags": ["history", "pakistan"]
+    },
+    {
+      "id": "urdu_qa_015",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "قرآن پاک میں کتنی سورتیں ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["114", "ایک سو چودہ"],
+      "difficulty": "easy",
+      "tags": ["religion", "islam"]
+    },
+    {
+      "id": "urdu_qa_016",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "پاکستان کا سب سے بڑا شہر کون سا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["کراچی", "Karachi"],
+      "difficulty": "easy",
+      "tags": ["geography", "pakistan"]
+    },
+    {
+      "id": "urdu_qa_017",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "دنیا کی سب سے لمبی دریا کون سی ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["نیل", "Nile"],
+      "difficulty": "medium",
+      "tags": ["geography", "world"]
+    },
+    {
+      "id": "urdu_qa_018",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "پاکستان کتنے صوبوں پر مشتمل ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["چار", "4", "four"],
+      "difficulty": "easy",
+      "tags": ["geography", "pakistan"]
+    },
+    {
+      "id": "urdu_qa_019",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "انسان کے دل میں کتنے خانے ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["چار", "4", "four"],
+      "difficulty": "medium",
+      "tags": ["science", "biology"]
+    },
+    {
+      "id": "urdu_qa_020",
+      "category": "question_answering",
+      "script_type": "urdu",
+      "prompt": "پاکستان کی سب سے اونچی چوٹی کون سی ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["کے ٹو", "K2", "کے-2", "کی ٹو"],
+      "difficulty": "medium",
+      "tags": ["geography", "pakistan"]
+    },
+    {
+      "id": "urdu_math_001",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "پانچ جمع پانچ کتنے ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["دس", "10", "ten"],
+      "difficulty": "easy",
+      "tags": ["math", "addition"]
+    },
+    {
+      "id": "urdu_math_002",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "بارہ میں سے سات نکالیں تو کتنے بچیں گے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["پانچ", "5", "five"],
+      "difficulty": "easy",
+      "tags": ["math", "subtraction"]
+    },
+    {
+      "id": "urdu_math_003",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "چھ ضرب چھ کتنے ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["چھتیس", "36", "thirty-six"],
+      "difficulty": "easy",
+      "tags": ["math", "multiplication"]
+    },
+    {
+      "id": "urdu_math_004",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "سو تقسیم پانچ کتنے ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["بیس", "20", "twenty"],
+      "difficulty": "easy",
+      "tags": ["math", "division"]
+    },
+    {
+      "id": "urdu_math_005",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "ایک درجن میں کتنی اشیاء ہوتی ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["بارہ", "12", "twelve"],
+      "difficulty": "easy",
+      "tags": ["math", "counting"]
+    },
+    {
+      "id": "urdu_math_006",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "اگر احمد کے پاس 15 سیب ہیں اور وہ 7 دے دے تو کتنے بچیں گے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["آٹھ", "8", "eight"],
+      "difficulty": "medium",
+      "tags": ["math", "word_problem"]
+    },
+    {
+      "id": "urdu_math_007",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "تین کا مربع کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["نو", "9", "nine"],
+      "difficulty": "easy",
+      "tags": ["math", "square"]
+    },
+    {
+      "id": "urdu_math_008",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "سولہ کا جذر کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["چار", "4", "four"],
+      "difficulty": "medium",
+      "tags": ["math", "root"]
+    },
+    {
+      "id": "urdu_math_009",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "پچیس فیصد کا مطلب کتنا حصہ ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["چوتھائی", "1/4", "ایک چوتھائی", "25%", "25"],
+      "difficulty": "medium",
+      "tags": ["math", "percentage"]
+    },
+    {
+      "id": "urdu_math_010",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "آٹھ ضرب چار کتنے ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["بتیس", "32", "thirty-two"],
+      "difficulty": "easy",
+      "tags": ["math", "multiplication"]
+    },
+    {
+      "id": "urdu_math_011",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "سات ضرب آٹھ کتنے ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["چھپن", "56", "fifty-six"],
+      "difficulty": "easy",
+      "tags": ["math", "multiplication"]
+    },
+    {
+      "id": "urdu_math_012",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "ایک گھنٹے میں کتنے منٹ ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["ساٹھ", "60", "sixty"],
+      "difficulty": "easy",
+      "tags": ["math", "time"]
+    },
+    {
+      "id": "urdu_math_013",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "دو سو جمع تین سو کتنے ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["پانچ سو", "500", "five hundred"],
+      "difficulty": "easy",
+      "tags": ["math", "addition"]
+    },
+    {
+      "id": "urdu_math_014",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "نو ضرب نو کتنے ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["اکیاسی", "81", "eighty-one"],
+      "difficulty": "easy",
+      "tags": ["math", "multiplication"]
+    },
+    {
+      "id": "urdu_math_015",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "ایک کلومیٹر میں کتنے میٹر ہوتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["ہزار", "1000", "thousand"],
+      "difficulty": "easy",
+      "tags": ["math", "conversion"]
+    },
+    {
+      "id": "urdu_math_016",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "اگر پانچ چیزوں کی قیمت 50 روپے ہے تو ایک چیز کی قیمت کیا ہوگی؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["دس", "10", "ten"],
+      "difficulty": "medium",
+      "tags": ["math", "division"]
+    },
+    {
+      "id": "urdu_math_017",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "ایک مثلث کے تین زاویوں کا مجموعہ کتنے ڈگری ہوتا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["180", "ایک سو اسی", "one hundred eighty"],
+      "difficulty": "medium",
+      "tags": ["math", "geometry"]
+    },
+    {
+      "id": "urdu_math_018",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "بیس کا دس فیصد کتنا ہوتا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["دو", "2", "two"],
+      "difficulty": "medium",
+      "tags": ["math", "percentage"]
+    },
+    {
+      "id": "urdu_math_019",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "چار کا مکعب کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["چونسٹھ", "64", "sixty-four"],
+      "difficulty": "medium",
+      "tags": ["math", "cube"]
+    },
+    {
+      "id": "urdu_math_020",
+      "category": "mathematics",
+      "script_type": "urdu",
+      "prompt": "پائی کی قدر تقریباً کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["3.14", "22/7", "تین اعشاریہ"],
+      "difficulty": "medium",
+      "tags": ["math", "constants"]
+    },
+    {
+      "id": "urdu_reason_001",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "اگر تمام پھل میٹھے ہیں اور سیب ایک پھل ہے تو سیب کیسا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["میٹھا", "sweet"],
+      "difficulty": "easy",
+      "tags": ["logic", "deduction"]
+    },
+    {
+      "id": "urdu_reason_002",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "ترتیب مکمل کریں: 2، 4، 6، 8، ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["10", "دس", "ten"],
+      "difficulty": "easy",
+      "tags": ["pattern", "numbers"]
+    },
+    {
+      "id": "urdu_reason_003",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "اگر آج پیر ہے تو کل کون سا دن ہوگا؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["منگل", "Tuesday"],
+      "difficulty": "easy",
+      "tags": ["time", "days"]
+    },
+    {
+      "id": "urdu_reason_004",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "کون سا لفظ باقیوں سے مختلف ہے: گلاب، چنبیلی، آم، یاسمین",
+      "expected_language": "urdu",
+      "expected_keywords": ["آم", "mango", "پھل"],
+      "difficulty": "medium",
+      "tags": ["classification", "odd_one"]
+    },
+    {
+      "id": "urdu_reason_005",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "ترتیب مکمل کریں: 1، 1، 2، 3، 5، 8، ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["13", "تیرہ", "thirteen"],
+      "difficulty": "medium",
+      "tags": ["pattern", "fibonacci"]
+    },
+    {
+      "id": "urdu_reason_006",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "اگر A > B اور B > C تو A اور C میں کون بڑا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["A", "اے"],
+      "difficulty": "medium",
+      "tags": ["logic", "comparison"]
+    },
+    {
+      "id": "urdu_reason_007",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "کون سا نمبر باقیوں سے مختلف ہے: 2، 3، 5، 9، 11",
+      "expected_language": "urdu",
+      "expected_keywords": ["9", "نو", "nine"],
+      "difficulty": "hard",
+      "tags": ["classification", "prime"]
+    },
+    {
+      "id": "urdu_reason_008",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "اگر کل جمعرات تھی تو آج کون سا دن ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["جمعہ", "Friday"],
+      "difficulty": "easy",
+      "tags": ["time", "days"]
+    },
+    {
+      "id": "urdu_reason_009",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "کتاب : پڑھنا :: گانا : ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["سننا", "گانے", "موسیقی", "listen"],
+      "difficulty": "medium",
+      "tags": ["analogy"]
+    },
+    {
+      "id": "urdu_reason_010",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "ترتیب مکمل کریں: A, C, E, G, ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["I", "آئی"],
+      "difficulty": "easy",
+      "tags": ["pattern", "alphabets"]
+    },
+    {
+      "id": "urdu_reason_011",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "اگر 3 آدمی 3 دن میں 3 دیواریں بناتے ہیں تو 6 آدمی 6 دن میں کتنی دیواریں بنائیں گے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["12", "بارہ", "twelve"],
+      "difficulty": "hard",
+      "tags": ["logic", "work_rate"]
+    },
+    {
+      "id": "urdu_reason_012",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "ڈاکٹر : مریض :: استاد : ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["شاگرد", "طالب علم", "student"],
+      "difficulty": "easy",
+      "tags": ["analogy"]
+    },
+    {
+      "id": "urdu_reason_013",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "کون سا جانور باقیوں سے مختلف ہے: شیر، چیتا، بلی، ہاتھی",
+      "expected_language": "urdu",
+      "expected_keywords": ["ہاتھی", "elephant"],
+      "difficulty": "medium",
+      "tags": ["classification", "animals"]
+    },
+    {
+      "id": "urdu_reason_014",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "اگر سرخ کا مطلب نیلا ہو اور نیلے کا مطلب سبز تو آسمان کا رنگ کیا ہوگا؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["سبز", "green"],
+      "difficulty": "hard",
+      "tags": ["logic", "coding"]
+    },
+    {
+      "id": "urdu_reason_015",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "ترتیب مکمل کریں: 2، 6، 12، 20، ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["30", "تیس", "thirty"],
+      "difficulty": "hard",
+      "tags": ["pattern", "numbers"]
+    },
+    {
+      "id": "urdu_reason_016",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "گھڑی : وقت :: ترازو : ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["وزن", "weight"],
+      "difficulty": "easy",
+      "tags": ["analogy"]
+    },
+    {
+      "id": "urdu_reason_017",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "پانی : پیاس :: کھانا : ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["بھوک", "hunger"],
+      "difficulty": "easy",
+      "tags": ["analogy"]
+    },
+    {
+      "id": "urdu_reason_018",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "ترتیب مکمل کریں: 1، 4، 9، 16، ___",
+      "expected_language": "urdu",
+      "expected_keywords": ["25", "پچیس", "twenty-five"],
+      "difficulty": "medium",
+      "tags": ["pattern", "squares"]
+    },
+    {
+      "id": "urdu_reason_019",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "کون سا ملک باقیوں سے مختلف ہے: پاکستان، بھارت، بنگلادیش، جاپان",
+      "expected_language": "urdu",
+      "expected_keywords": ["جاپان", "Japan"],
+      "difficulty": "medium",
+      "tags": ["classification", "geography"]
+    },
+    {
+      "id": "urdu_reason_020",
+      "category": "reasoning",
+      "script_type": "urdu",
+      "prompt": "5 سال پہلے علی کی عمر 15 سال تھی۔ آج علی کی عمر کتنی ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["20", "بیس", "twenty"],
+      "difficulty": "easy",
+      "tags": ["math", "age"]
+    },
+    {
+      "id": "urdu_trans_001",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "اس جملے کا انگریزی ترجمہ کریں: میں پاکستان سے ہوں",
+      "expected_language": "english",
+      "expected_keywords": ["I am", "Pakistan", "from"],
+      "difficulty": "easy",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_002",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "Hello, how are you? کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["ہیلو", "سلام", "کیسے", "خیریت"],
+      "difficulty": "easy",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_003",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: آج موسم بہت اچھا ہے",
+      "expected_language": "english",
+      "expected_keywords": ["weather", "today", "good", "nice", "great"],
+      "difficulty": "easy",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_004",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "I love my country کو اردو میں ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["محبت", "پیار", "وطن", "ملک"],
+      "difficulty": "easy",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_005",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: کتاب علم کا خزانہ ہے",
+      "expected_language": "english",
+      "expected_keywords": ["book", "knowledge", "treasure"],
+      "difficulty": "medium",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_006",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "Time is money کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["وقت", "دولت", "پیسہ"],
+      "difficulty": "medium",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_007",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: علم طاقت ہے",
+      "expected_language": "english",
+      "expected_keywords": ["knowledge", "power"],
+      "difficulty": "easy",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_008",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "Honesty is the best policy کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["ایمانداری", "سچائی", "بہترین"],
+      "difficulty": "medium",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_009",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: صحت دولت سے بہتر ہے",
+      "expected_language": "english",
+      "expected_keywords": ["health", "wealth", "better"],
+      "difficulty": "medium",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_010",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "A friend in need is a friend indeed کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["دوست", "مشکل", "سچا"],
+      "difficulty": "medium",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_011",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: مہنت کا پھل میٹھا ہوتا ہے",
+      "expected_language": "english",
+      "expected_keywords": ["hard work", "fruit", "sweet", "labor"],
+      "difficulty": "medium",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_012",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: پانی زندگی ہے",
+      "expected_language": "english",
+      "expected_keywords": ["water", "life"],
+      "difficulty": "easy",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_013",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "Education is important کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["تعلیم", "ضروری", "اہم"],
+      "difficulty": "easy",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_014",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "Practice makes perfect کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["مشق", "کامل", "پریکٹس"],
+      "difficulty": "medium",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_015",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: جینا مرنا وطن کے نام",
+      "expected_language": "english",
+      "expected_keywords": ["live", "die", "country", "homeland"],
+      "difficulty": "hard",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_016",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "Good morning کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["صبح", "بخیر", "خیر"],
+      "difficulty": "easy",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_017",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: اتحاد میں طاقت ہے",
+      "expected_language": "english",
+      "expected_keywords": ["unity", "strength", "power"],
+      "difficulty": "medium",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_trans_018",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "Thank you very much کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["شکریہ", "مہربانی"],
+      "difficulty": "easy",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_019",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "Actions speak louder than words کا اردو ترجمہ کریں",
+      "expected_language": "urdu",
+      "expected_keywords": ["عمل", "باتوں", "کام"],
+      "difficulty": "hard",
+      "tags": ["translation", "english_to_urdu"]
+    },
+    {
+      "id": "urdu_trans_020",
+      "category": "translation",
+      "script_type": "urdu",
+      "prompt": "ترجمہ کریں: سچ بولو اور ڈرو نہیں",
+      "expected_language": "english",
+      "expected_keywords": ["truth", "speak", "fear", "afraid"],
+      "difficulty": "medium",
+      "tags": ["translation", "urdu_to_english"]
+    },
+    {
+      "id": "urdu_summary_001",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "اس پیراگراف کا خلاصہ لکھیں: پاکستان 1947 میں آزاد ہوا۔ قائداعظم محمد علی جناح نے پاکستان بنایا۔ لاہور کی قرارداد 1940 میں منظور ہوئی۔ پاکستان کا مطلب ہے لا الہ الا اللہ۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["1947", "قائداعظم", "پاکستان", "1940", "آزاد"],
+      "difficulty": "medium",
+      "tags": ["summary", "history"]
+    },
+    {
+      "id": "urdu_summary_002",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ کریں: علامہ اقبال شاعر مشرق تھے۔ انہوں نے پاکستان کا خواب دیکھا۔ ان کی شاعری میں اسلام کی عظمت ہے۔ وہ 1938 میں وفات پا گئے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["اقبال", "شاعر", "پاکستان", "1938"],
+      "difficulty": "medium",
+      "tags": ["summary", "literature"]
+    },
+    {
+      "id": "urdu_summary_003",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "اس کہانی کا خلاصہ لکھیں: ایک پیاسا کوا تھا۔ اس نے ایک گھڑا دیکھا جس میں تھوڑا پانی تھا۔ اس نے کنکریاں ڈالیں اور پانی اوپر آ گیا۔ اس نے پانی پی لیا۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["کوا", "پانی", "گھڑا", "کنکریاں"],
+      "difficulty": "easy",
+      "tags": ["summary", "story"]
+    },
+    {
+      "id": "urdu_summary_004",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ لکھیں: اردو زبان برصغیر کی زبان ہے۔ یہ فارسی، عربی اور ہندی سے مل کر بنی۔ یہ پاکستان کی قومی زبان ہے۔ اردو میں بہت شاعری لکھی گئی۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["اردو", "زبان", "پاکستان", "قومی"],
+      "difficulty": "medium",
+      "tags": ["summary", "language"]
+    },
+    {
+      "id": "urdu_summary_005",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ کریں: کمپیوٹر ایک الیکٹرانک مشین ہے۔ یہ حساب کتاب کرتا ہے۔ اس میں مختلف سافٹ ویئر چلتے ہیں۔ انٹرنیٹ کمپیوٹر سے چلتا ہے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["کمپیوٹر", "مشین", "سافٹ ویئر", "انٹرنیٹ"],
+      "difficulty": "easy",
+      "tags": ["summary", "technology"]
+    },
+    {
+      "id": "urdu_summary_006",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "اس قول کا خلاصہ لکھیں: محنت انسان کو کامیاب بناتی ہے۔ جو لوگ محنت کرتے ہیں وہ کبھی ناکام نہیں ہوتے۔ محنت کا پھل میٹھا ہوتا ہے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["محنت", "کامیاب", "کامیابی"],
+      "difficulty": "easy",
+      "tags": ["summary", "motivation"]
+    },
+    {
+      "id": "urdu_summary_007",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ لکھیں: پانی زندگی کے لیے ضروری ہے۔ انسان پانی کے بغیر نہیں رہ سکتا۔ ہمیں پانی کی بچت کرنی چاہیے۔ آلودہ پانی سے بیماریاں ہوتی ہیں۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["پانی", "زندگی", "بچت", "ضروری"],
+      "difficulty": "medium",
+      "tags": ["summary", "environment"]
+    },
+    {
+      "id": "urdu_summary_008",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ کریں: قائداعظم نے کہا تھا: اتحاد، ایمان، تنظیم۔ یہ تین اصول پاکستان کی بنیاد ہیں۔ ان پر عمل کر کے ہم کامیاب ہو سکتے ہیں۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["قائداعظم", "اتحاد", "ایمان", "تنظیم"],
+      "difficulty": "medium",
+      "tags": ["summary", "history"]
+    },
+    {
+      "id": "urdu_summary_009",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "اس کا خلاصہ لکھیں: صحت بہت اہم ہے۔ اچھی غذا کھانی چاہیے۔ ورزش کرنی چاہیے۔ صاف پانی پینا چاہیے۔ نیند پوری لینی چاہیے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["صحت", "غذا", "ورزش", "پانی"],
+      "difficulty": "easy",
+      "tags": ["summary", "health"]
+    },
+    {
+      "id": "urdu_summary_010",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ لکھیں: تعلیم روشنی ہے۔ پڑھے لکھے لوگ ترقی کرتے ہیں۔ اسلام میں علم حاصل کرنا فرض ہے۔ تعلیم سے انسان بہتر بنتا ہے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["تعلیم", "علم", "ترقی"],
+      "difficulty": "easy",
+      "tags": ["summary", "education"]
+    },
+    {
+      "id": "urdu_summary_011",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ کریں: موبائل فون نے دنیا بدل دی۔ اب لوگ ہر وقت رابطے میں ہیں۔ انٹرنیٹ موبائل پر چلتا ہے۔ لیکن زیادہ استعمال نقصان دہ ہے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["موبائل", "رابطے", "انٹرنیٹ"],
+      "difficulty": "medium",
+      "tags": ["summary", "technology"]
+    },
+    {
+      "id": "urdu_summary_012",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ لکھیں: کرکٹ پاکستان کا مشہور کھیل ہے۔ 1992 میں ہم نے ورلڈ کپ جیتا۔ عمران خان کپتان تھے۔ یہ ہماری سب سے بڑی کامیابی تھی۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["کرکٹ", "1992", "عمران خان", "ورلڈ کپ"],
+      "difficulty": "easy",
+      "tags": ["summary", "sports"]
+    },
+    {
+      "id": "urdu_summary_013",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ کریں: رمضان کا مہینہ مبارک ہے۔ اس میں روزے رکھنا فرض ہے۔ قرآن اسی مہینے میں نازل ہوا۔ عبادت کا ثواب زیادہ ملتا ہے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["رمضان", "روزے", "قرآن", "عبادت"],
+      "difficulty": "easy",
+      "tags": ["summary", "religion"]
+    },
+    {
+      "id": "urdu_summary_014",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ لکھیں: درخت قدرت کا تحفہ ہیں۔ یہ ہمیں آکسیجن دیتے ہیں۔ پھل اور سایہ بھی ملتا ہے۔ ہمیں درخت لگانے چاہیں۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["درخت", "آکسیجن", "پھل", "سایہ"],
+      "difficulty": "easy",
+      "tags": ["summary", "environment"]
+    },
+    {
+      "id": "urdu_summary_015",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ کریں: پاکستان میں چار موسم ہیں۔ گرمی، سردی، بہار اور برسات۔ ہر موسم کی اپنی خوبصورتی ہے۔ موسموں کی تبدیلی قدرت کا نظام ہے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["موسم", "گرمی", "سردی", "بہار"],
+      "difficulty": "easy",
+      "tags": ["summary", "nature"]
+    },
+    {
+      "id": "urdu_summary_016",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ لکھیں: والدین کا احترام اسلام میں فرض ہے۔ ماں کے قدموں تلے جنت ہے۔ والدین کی خدمت سعادت ہے۔ ان کے لیے دعا کرنی چاہیے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["والدین", "ماں", "احترام", "جنت"],
+      "difficulty": "medium",
+      "tags": ["summary", "religion"]
+    },
+    {
+      "id": "urdu_summary_017",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ کریں: ماحولیاتی آلودگی بڑھ رہی ہے۔ فیکٹریوں کا دھواں ہوا خراب کرتا ہے۔ گاڑیاں بھی آلودگی پھیلاتی ہیں۔ ہمیں ماحول بچانا ہے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["آلودگی", "ماحول", "دھواں", "ہوا"],
+      "difficulty": "medium",
+      "tags": ["summary", "environment"]
+    },
+    {
+      "id": "urdu_summary_018",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ لکھیں: انٹرنیٹ نے دنیا کو قریب کر دیا۔ معلومات آسانی سے ملتی ہیں۔ سوشل میڈیا سے رابطہ رہتا ہے۔ لیکن محفوظ استعمال ضروری ہے۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["انٹرنیٹ", "معلومات", "سوشل میڈیا"],
+      "difficulty": "medium",
+      "tags": ["summary", "technology"]
+    },
+    {
+      "id": "urdu_summary_019",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ کریں: دوستی اللہ کی نعمت ہے۔ اچھے دوست ہماری مدد کرتے ہیں۔ بری صحبت سے بچنا چاہیے۔ سچے دوست مشکل میں کام آتے ہیں۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["دوستی", "دوست", "مدد", "صحبت"],
+      "difficulty": "easy",
+      "tags": ["summary", "social"]
+    },
+    {
+      "id": "urdu_summary_020",
+      "category": "summarization",
+      "script_type": "urdu",
+      "prompt": "خلاصہ لکھیں: پنجاب پاکستان کا سب سے بڑا صوبہ ہے۔ لاہور اس کا دارالحکومت ہے۔ یہاں زرعی زمین بہت ہے۔ پنجاب کو پانچ دریاؤں کی سرزمین کہتے ہیں۔",
+      "expected_language": "urdu",
+      "expected_keywords": ["پنجاب", "لاہور", "دریا", "صوبہ"],
+      "difficulty": "medium",
+      "tags": ["summary", "geography"]
+    },
+    {
+      "id": "urdu_creative_001",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "بہار کے موسم پر ایک چھوٹی نظم لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["بہار", "پھول", "خوشبو", "موسم", "رنگ"],
+      "difficulty": "medium",
+      "tags": ["poetry", "nature"]
+    },
+    {
+      "id": "urdu_creative_002",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ایک اچھے دوست کی خوبیوں پر پیراگراف لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["دوست", "ساتھ", "مدد", "محبت", "وفاداری", "وفادار"],
+      "difficulty": "easy",
+      "tags": ["essay", "friendship"]
+    },
+    {
+      "id": "urdu_creative_003",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ایک ایماندار لکڑہارے کی مختصر کہانی لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["لکڑہارا", "لکڑ", "ایماندار", "ایمانداری", "کلہاڑی"],
+      "difficulty": "medium",
+      "tags": ["story", "moral"]
+    },
+    {
+      "id": "urdu_creative_004",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "اپنے ملک پاکستان سے محبت پر چند سطریں لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["پاکستان", "وطن", "محبت", "پیار", "ملک"],
+      "difficulty": "easy",
+      "tags": ["essay", "patriotism"]
+    },
+    {
+      "id": "urdu_creative_005",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "چاند کی رات پر ایک نظم لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["چاند", "رات", "روشنی", "تارے", "آسمان"],
+      "difficulty": "medium",
+      "tags": ["poetry", "nature"]
+    },
+    {
+      "id": "urdu_creative_006",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ماں کی محبت پر ایک مضمون کا آغاز لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["ماں", "محبت", "پیار", "مامتا", "قربانی"],
+      "difficulty": "medium",
+      "tags": ["essay", "family"]
+    },
+    {
+      "id": "urdu_creative_007",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "کسی مشہور جگہ کی سیر کا احوال لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["سیر", "دیکھا", "خوبصورت", "جگہ", "نظارہ"],
+      "difficulty": "medium",
+      "tags": ["travelogue", "description"]
+    },
+    {
+      "id": "urdu_creative_008",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ایک خوشگوار یاد کے بارے میں لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["یاد", "خوشی", "خوش", "وقت", "لمحہ"],
+      "difficulty": "easy",
+      "tags": ["memoir", "personal"]
+    },
+    {
+      "id": "urdu_creative_009",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "اپنے گھر کی تعریف میں کچھ لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["گھر", "کمرہ", "کمرے", "صحن", "چھت", "خاندان"],
+      "difficulty": "easy",
+      "tags": ["description", "home"]
+    },
+    {
+      "id": "urdu_creative_010",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "کتاب کی اہمیت پر ایک مختصر مضمون لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["کتاب", "علم", "پڑھنا", "دوست"],
+      "difficulty": "easy",
+      "tags": ["essay", "education"]
+    },
+    {
+      "id": "urdu_creative_011",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ایک شہر کی صبح کا منظر لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["صبح", "سورج", "لوگ", "شہر", "منظر"],
+      "difficulty": "medium",
+      "tags": ["description", "city"]
+    },
+    {
+      "id": "urdu_creative_012",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "بارش کے موسم پر نظم لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["بارش", "پانی", "بادل", "قطرے", "موسم"],
+      "difficulty": "medium",
+      "tags": ["poetry", "nature"]
+    },
+    {
+      "id": "urdu_creative_013",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ایک سچے مسلمان کی خوبیاں لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["مسلمان", "نماز", "سچائی", "ایمان", "نیکی"],
+      "difficulty": "medium",
+      "tags": ["essay", "religion"]
+    },
+    {
+      "id": "urdu_creative_014",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "کسان کی زندگی پر مختصر پیراگراف لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["کسان", "کھیت", "فصل", "محنت", "زمین"],
+      "difficulty": "medium",
+      "tags": ["essay", "occupation"]
+    },
+    {
+      "id": "urdu_creative_015",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ایک خواب کی کہانی لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["خواب", "دیکھا", "نیند", "رات"],
+      "difficulty": "medium",
+      "tags": ["story", "imagination"]
+    },
+    {
+      "id": "urdu_creative_016",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "اپنے سکول کی تعریف میں لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["سکول", "استاد", "کلاس", "دوست", "تعلیم"],
+      "difficulty": "easy",
+      "tags": ["essay", "school"]
+    },
+    {
+      "id": "urdu_creative_017",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ایک پرندے کی زبانی کہانی لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["پرندہ", "پرندے", "اڑنا", "آسمان", "پر", "گھونسلا"],
+      "difficulty": "hard",
+      "tags": ["story", "creative"]
+    },
+    {
+      "id": "urdu_creative_018",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "قائداعظم کی تعریف میں چند سطریں لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["قائداعظم", "جناح", "پاکستان", "رہنما", "قائد"],
+      "difficulty": "easy",
+      "tags": ["essay", "history"]
+    },
+    {
+      "id": "urdu_creative_019",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "عید کی صبح کا منظر لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["عید", "خوشی", "نماز", "ملاقات", "کپڑے", "خوشگوار", "مسکراہٹ"],
+      "difficulty": "easy",
+      "tags": ["description", "festival"]
+    },
+    {
+      "id": "urdu_creative_020",
+      "category": "creative_writing",
+      "script_type": "urdu",
+      "prompt": "ایک درخت کی آپ بیتی لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["درخت", "پتے", "شاخ", "سایہ", "پھل"],
+      "difficulty": "hard",
+      "tags": ["story", "creative"]
+    },
+    {
+      "id": "urdu_conv_001",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "السلام علیکم، کیا حال ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["علیکم السلام", "وعلیکم", "ٹھیک", "خیریت", "الحمدللہ"],
+      "difficulty": "easy",
+      "tags": ["chat", "greeting"]
+    },
+    {
+      "id": "urdu_conv_002",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "آپ کا نام کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["نام", "مصنوعی", "ذہانت", "AI", "assistant"],
+      "difficulty": "easy",
+      "tags": ["chat", "introduction"]
+    },
+    {
+      "id": "urdu_conv_003",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "آج موسم کیسا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["موسم", "گرم", "سرد", "اچھا", "خوشگوار"],
+      "difficulty": "easy",
+      "tags": ["chat", "weather"]
+    },
+    {
+      "id": "urdu_conv_004",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "کیا آپ اردو میں بات کر سکتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["ہاں", "جی", "اردو", "بات", "گفتگو"],
+      "difficulty": "easy",
+      "tags": ["chat", "language"]
+    },
+    {
+      "id": "urdu_conv_005",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "مجھے کوئی مشورہ دیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["مشورہ", "محنت", "کامیابی"],
+      "difficulty": "medium",
+      "tags": ["chat", "advice"]
+    },
+    {
+      "id": "urdu_conv_006",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "آپ کیا کام کر سکتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["مدد", "سوالات", "جواب", "معلومات"],
+      "difficulty": "easy",
+      "tags": ["chat", "capabilities"]
+    },
+    {
+      "id": "urdu_conv_007",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "کیا آپ شاعری سنا سکتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["شاعری", "شعر", "غزل", "اقبال", "غالب"],
+      "difficulty": "medium",
+      "tags": ["chat", "poetry"]
+    },
+    {
+      "id": "urdu_conv_008",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "میں بور ہو رہا ہوں",
+      "expected_language": "urdu",
+      "expected_keywords": ["تفریح", "کھیل", "کتاب", "دلچسپ", "کرنا"],
+      "difficulty": "easy",
+      "tags": ["chat", "entertainment"]
+    },
+    {
+      "id": "urdu_conv_009",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "آج کا دن کیسا گزرا؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["دن", "اچھا", "ٹھیک", "گزرا", "خیریت"],
+      "difficulty": "easy",
+      "tags": ["chat", "daily"]
+    },
+    {
+      "id": "urdu_conv_010",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "شکریہ آپ کی مدد کے لیے",
+      "expected_language": "urdu",
+      "expected_keywords": ["شکریہ", "خوشی", "خدمت", "مدد"],
+      "difficulty": "easy",
+      "tags": ["chat", "thanks"]
+    },
+    {
+      "id": "urdu_conv_011",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "کیا آپ کو بھوک لگتی ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["مصنوعی", "نہیں", "ذہانت", "انسان"],
+      "difficulty": "medium",
+      "tags": ["chat", "personal"]
+    },
+    {
+      "id": "urdu_conv_012",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "آپ کا پسندیدہ رنگ کون سا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["رنگ", "پسند", "مصنوعی"],
+      "difficulty": "easy",
+      "tags": ["chat", "preferences"]
+    },
+    {
+      "id": "urdu_conv_013",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "کیا آپ سیکھ سکتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["سیکھ", "معلومات", "ڈیٹا", "ہاں"],
+      "difficulty": "medium",
+      "tags": ["chat", "learning"]
+    },
+    {
+      "id": "urdu_conv_014",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "مجھے کوئی لطیفہ سنائیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["لطیفہ", "مذاق", "ہنسی"],
+      "difficulty": "medium",
+      "tags": ["chat", "humor"]
+    },
+    {
+      "id": "urdu_conv_015",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "آپ کا پسندیدہ شاعر کون ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["شاعر", "اقبال", "غالب", "مصنوعی"],
+      "difficulty": "medium",
+      "tags": ["chat", "literature"]
+    },
+    {
+      "id": "urdu_conv_016",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "مجھے کچھ تفریح چاہیے",
+      "expected_language": "urdu",
+      "expected_keywords": ["تفریح", "کھیل", "فلم", "موسیقی"],
+      "difficulty": "easy",
+      "tags": ["chat", "entertainment"]
+    },
+    {
+      "id": "urdu_conv_017",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "آپ کو غصہ آتا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["مصنوعی", "جذبات", "نہیں", "غصہ"],
+      "difficulty": "medium",
+      "tags": ["chat", "emotions"]
+    },
+    {
+      "id": "urdu_conv_018",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "کیا آپ سوچ سکتے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["سوچ", "مصنوعی", "عمل", "ذہانت"],
+      "difficulty": "medium",
+      "tags": ["chat", "philosophy"]
+    },
+    {
+      "id": "urdu_conv_019",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "اللہ حافظ، پھر ملیں گے",
+      "expected_language": "urdu",
+      "expected_keywords": ["حافظ", "خدا حافظ", "ملیں", "الوداع"],
+      "difficulty": "easy",
+      "tags": ["chat", "goodbye"]
+    },
+    {
+      "id": "urdu_conv_020",
+      "category": "conversation",
+      "script_type": "urdu",
+      "prompt": "آپ کتنے پرانے ہیں؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["مصنوعی", "ذہانت", "عمر", "نیا"],
+      "difficulty": "easy",
+      "tags": ["chat", "about"]
+    },
+    {
+      "id": "urdu_inst_001",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "ہاں یا نہیں میں جواب دیں: کیا چاند روشنی دیتا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["ہاں", "yes"],
+      "difficulty": "easy",
+      "tags": ["instruction", "yes_no"]
+    },
+    {
+      "id": "urdu_inst_002",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "صرف ایک لفظ میں جواب دیں: پاکستان کی قومی زبان کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["اردو", "Urdu"],
+      "difficulty": "easy",
+      "tags": ["instruction", "one_word"]
+    },
+    {
+      "id": "urdu_inst_003",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "ہاں یا نہیں میں جواب دیں: کیا زمین گول ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["ہاں", "yes"],
+      "difficulty": "easy",
+      "tags": ["instruction", "yes_no"]
+    },
+    {
+      "id": "urdu_inst_004",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "فہرست بنائیں: پاکستان کے چار صوبوں کے نام",
+      "expected_language": "urdu",
+      "expected_keywords": ["پنجاب", "سندھ", "بلوچستان", "خیبر پختونخوا"],
+      "difficulty": "easy",
+      "tags": ["instruction", "list"]
+    },
+    {
+      "id": "urdu_inst_005",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "الٹی ترتیب میں لکھیں: 1، 2، 3، 4، 5",
+      "expected_language": "urdu",
+      "expected_keywords": ["5", "4", "3", "2", "1"],
+      "difficulty": "easy",
+      "tags": ["instruction", "reverse"]
+    },
+    {
+      "id": "urdu_inst_006",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "بڑے حروف میں لکھیں: pakistan zindabad",
+      "expected_language": "either",
+      "expected_keywords": ["PAKISTAN", "ZINDABAD"],
+      "difficulty": "easy",
+      "tags": ["instruction", "format"]
+    },
+    {
+      "id": "urdu_inst_007",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "صرف نمبر میں جواب دیں: دو جمع دو کتنے ہوتے ہیں؟",
+      "expected_language": "either",
+      "expected_keywords": ["4"],
+      "difficulty": "easy",
+      "tags": ["instruction", "number_only"]
+    },
+    {
+      "id": "urdu_inst_008",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "تین الفاظ میں بیان کریں: سورج کیا ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["ستارہ", "روشنی", "گرم"],
+      "difficulty": "medium",
+      "tags": ["instruction", "word_limit"]
+    },
+    {
+      "id": "urdu_inst_009",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "ہاں یا نہیں: کیا مچھلی پانی میں رہتی ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["ہاں", "yes"],
+      "difficulty": "easy",
+      "tags": ["instruction", "yes_no"]
+    },
+    {
+      "id": "urdu_inst_010",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "صرف ایک نمبر لکھیں: اسلام کے کتنے ارکان ہیں؟",
+      "expected_language": "either",
+      "expected_keywords": ["5", "پانچ"],
+      "difficulty": "easy",
+      "tags": ["instruction", "number_only"]
+    },
+    {
+      "id": "urdu_inst_011",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "حروف تہجی کی ترتیب میں لکھیں: گلاب، آم، بینگن",
+      "expected_language": "urdu",
+      "expected_keywords": ["آم", "بینگن", "گلاب"],
+      "difficulty": "medium",
+      "tags": ["instruction", "alphabetical"]
+    },
+    {
+      "id": "urdu_inst_012",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "سچ یا جھوٹ: سورج مغرب سے طلوع ہوتا ہے",
+      "expected_language": "urdu",
+      "expected_keywords": ["جھوٹ", "غلط", "نہیں", "false"],
+      "difficulty": "easy",
+      "tags": ["instruction", "true_false"]
+    },
+    {
+      "id": "urdu_inst_013",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "JSON فارمیٹ میں لکھیں: نام احمد، عمر 25",
+      "expected_language": "either",
+      "expected_keywords": ["name", "احمد", "Ahmad", "age", "25"],
+      "difficulty": "hard",
+      "tags": ["instruction", "json"]
+    },
+    {
+      "id": "urdu_inst_014",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "پہلے تین سطروں میں اپنا تعارف لکھیں",
+      "expected_language": "urdu",
+      "expected_keywords": ["میں", "مصنوعی", "ذہانت", "مدد", "AI"],
+      "difficulty": "medium",
+      "tags": ["instruction", "intro"]
+    },
+    {
+      "id": "urdu_inst_015",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "ایک جملے میں جواب دیں: پاکستان کب آزاد ہوا؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["1947", "آزاد", "اگست"],
+      "difficulty": "easy",
+      "tags": ["instruction", "one_sentence"]
+    },
+    {
+      "id": "urdu_inst_016",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "فہرست بنائیں: ہفتے کے پہلے تین دنوں کے نام",
+      "expected_language": "urdu",
+      "expected_keywords": ["اتوار", "پیر", "منگل", "Sunday", "Monday", "Tuesday"],
+      "difficulty": "easy",
+      "tags": ["instruction", "list"]
+    },
+    {
+      "id": "urdu_inst_017",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "ٹیبل فارمیٹ میں دیں: پاکستان کے چار صوبے اور ان کے دارالحکومت",
+      "expected_language": "either",
+      "expected_keywords": ["پنجاب", "لاہور", "سندھ", "کراچی", "Punjab", "Lahore"],
+      "difficulty": "hard",
+      "tags": ["instruction", "table"]
+    },
+    {
+      "id": "urdu_inst_018",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "دو فقروں میں بتائیں: پانی کیوں ضروری ہے؟",
+      "expected_language": "urdu",
+      "expected_keywords": ["پانی", "زندگی", "ضروری"],
+      "difficulty": "medium",
+      "tags": ["instruction", "sentence_limit"]
+    },
+    {
+      "id": "urdu_inst_019",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "بلٹ پوائنٹس میں لکھیں: تعلیم کے تین فائدے",
+      "expected_language": "urdu",
+      "expected_keywords": ["علم", "ترقی", "نوکری", "کامیابی"],
+      "difficulty": "medium",
+      "tags": ["instruction", "bullets"]
+    },
+    {
+      "id": "urdu_inst_020",
+      "category": "instruction_following",
+      "script_type": "urdu",
+      "prompt": "صرف انگریزی میں جواب دیں: پاکستان کا قومی کھیل کیا ہے؟",
+      "expected_language": "english",
+      "expected_keywords": ["hockey", "Hockey"],
+      "difficulty": "medium",
+      "tags": ["instruction", "language_constraint"]
+    }
+  ]
+}
