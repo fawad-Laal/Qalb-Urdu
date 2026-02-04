@@ -3,7 +3,7 @@
 **Project:** Qalb Urdu Language Model Evaluation  
 **Model:** `enstazao/qalb:8b-instruct-fp16`  
 **Repository:** https://github.com/fawad-Laal/Qalb-Urdu  
-**Last Updated:** February 3, 2026
+**Last Updated:** February 4, 2026
 
 ---
 
@@ -14,9 +14,10 @@
 | **Round 1** | Feb 2, 2026 | 74.4/100 | — | ✅ Complete |
 | **Round 2** | Feb 3, 2026 | 78.3/100 | +3.9 | ✅ Complete |
 | **Round 3** | Feb 3, 2026 | 79.2/100 | +0.9 | ✅ Complete |
-| **Round 4** | Feb 3, 2026 | TBD | TBD | 🔄 In Progress |
+| **Round 4** | Feb 4, 2026 | 77.7/100 | **-1.5** | ✅ Complete |
 
-**Total Improvement to Date:** +4.8 points (74.4 → 79.2)
+**Total Improvement to Date:** +3.3 points (74.4 → 77.7)  
+**Peak Performance:** 79.2/100 (Round 3)
 
 ---
 
@@ -25,8 +26,8 @@
 ```
 Round 1 ████████████████████████████████████████████████░░░░░░░░░░░░ 74.4
 Round 2 ██████████████████████████████████████████████████████░░░░░░ 78.3
-Round 3 ███████████████████████████████████████████████████████░░░░░ 79.2
-Round 4 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ TBD
+Round 3 ███████████████████████████████████████████████████████░░░░░ 79.2 ⭐ PEAK
+Round 4 ██████████████████████████████████████████████████████░░░░░░ 77.7 ↓
         0   10   20   30   40   50   60   70   80   90   100
 ```
 
@@ -37,7 +38,7 @@ Round 4 ░░░░░░░░░░░░░░░░░░░░░░░░
 | 1 | 78.5 | 70.4 | 8.1 pts |
 | 2 | 79.0 | 77.6 | 1.4 pts |
 | 3 | 80.0 | 78.4 | 1.6 pts |
-| 4 | TBD | TBD | TBD |
+| 4 | 78.0 | 77.4 | 0.6 pts |
 
 ---
 
@@ -145,42 +146,74 @@ Round 4 ░░░░░░░░░░░░░░░░░░░░░░░░
 
 ---
 
-### Round 4 - Keyword Expansion (In Progress)
+### Round 4 - Keyword Expansion
 
-**Date:** February 3, 2026  
+**Date:** February 4, 2026  
 **Version:** v4.0.0  
-**Score:** TBD
+**Score:** 77.7/100 (-1.5) ⚠️ DECREASED
 
-#### Planned Changes
+#### Changes Made
 
-**Translation Keywords (26 tests)**
+**Translation Keywords (26 tests expanded)**
 
-| Test ID | Before | After |
-|---------|--------|-------|
-| urdu_trans_002 | 4 keywords | 10 keywords (+6) |
-| urdu_trans_004 | 4 keywords | 9 keywords (+5) |
-| urdu_trans_006 | 3 keywords | 7 keywords (+4) |
-| roman_trans_002 | 6 keywords | 14 keywords (+8) |
-| roman_trans_004 | 6 keywords | 13 keywords (+7) |
-| ... | ... | ... |
+| Test ID | Before | After | Change |
+|---------|--------|-------|--------|
+| urdu_trans_002 | 4 keywords | 10 keywords | +6 |
+| urdu_trans_004 | 4 keywords | 9 keywords | +5 |
+| urdu_trans_006 | 3 keywords | 7 keywords | +4 |
+| roman_trans_002 | 6 keywords | 14 keywords | +8 |
+| roman_trans_004 | 6 keywords | 13 keywords | +7 |
 
-**Commonsense Keywords (20 tests)**
+**Commonsense/Reasoning Keywords (20 tests expanded)**
 
 | Test ID | Before | After | Added Concepts |
 |---------|--------|-------|----------------|
 | roman_cs_001 | 5 keywords | 12 keywords | بچاؤ, محفوظ, geela |
 | roman_cs_002 | 7 keywords | 14 keywords | علاج, گولی, چیک |
 | roman_cs_005 | 7 keywords | 12 keywords | یاد, neend, notes |
-| ... | ... | ... | ... |
+| urdu_reason_001 | 2 keywords | 5 keywords | meetha, شیریں, shirin |
 
-#### Reasoning Keywords (8 tests)
-- Added Roman transliterations
-- Added concept synonyms
-- Added English alternatives
+#### Critical Finding: Keyword Dilution Effect
 
-#### Files Created
+**Why scores decreased despite more keywords:**
+
+The scoring formula `score = 50 + (50 × passed/total)` penalizes responses when:
+- More keywords are added (higher denominator)
+- Model only matches original keywords (same numerator)
+- Result: Lower percentage, lower score
+
+**Example: roman_trans_002**
+- Round 3: 1 match / 6 keywords = 58.3 points
+- Round 4: 1 match / 14 keywords = 53.6 points ← WORSE
+
+#### Category Performance
+
+| Category | Round 3 | Round 4 | Change |
+|----------|---------|---------|--------|
+| translation (Urdu) | 85.0 | 88.0 | +3.0 ↑ |
+| translation (Roman) | 84.0 | 85.1 | +1.1 ↑ |
+| reasoning (Urdu) | 72.0 | 67.6 | -4.4 ↓ |
+| commonsense (Roman) | 75.0 | 72.0 | -3.0 ↓ |
+
+#### Key Findings
+
+1. **Translation improved** - More keywords helped translation tests
+2. **Reasoning declined** - Many failures are incorrect logic, not keywords
+3. **Commonsense misunderstood** - Model interpreted prompts differently
+4. **Scoring flaw exposed** - More keywords can hurt scores
+
+#### Lessons Learned
+
+| Issue | Impact | Recommendation |
+|-------|--------|----------------|
+| Keyword dilution | -1.5 pts | Use threshold scoring |
+| Semantic mismatch | ~5 pts lost | Consider embeddings |
+| Logic vs keywords | ~3 pts lost | Separate exact-match tests |
+
+#### Files
 - `tests/baseline/urdu_script_tests_round4.json` (v4.0.0)
 - `tests/baseline/roman_urdu_tests_round4.json` (v4.0.0)
+- `docs/ROUND_4_ANALYSIS.md`
 
 ---
 
@@ -216,23 +249,24 @@ Round 4 ░░░░░░░░░░░░░░░░░░░░░░░░
 
 | Category | R1 | R2 | R3 | R4 | Trend |
 |----------|-----|-----|-----|-----|-------|
-| Translation | ~82 | 87.7 | 87.8 | TBD | ⬆️ |
-| Summarization | ~78 | 81.8 | 82.0 | TBD | ⬆️ |
-| Creative Writing | ~75 | 78.9 | 79.0 | TBD | ⬆️ |
-| Question Answering | ~74 | 78.7 | 78.9 | TBD | ⬆️ |
-| Instruction Following | ~72 | 76.9 | 77.3 | TBD | ⬆️ |
-| Mathematics | ~68 | 74.3 | 75.8 | TBD | ⬆️ |
-| Reasoning/Commonsense | ~65 | 71.8 | 72.0 | TBD | ⬆️ |
+| Translation | ~82 | 87.7 | 87.8 | 86.5 | ⬆️ Best |
+| Summarization | ~78 | 81.8 | 82.0 | 81.3 | ⬆️ Stable |
+| Creative Writing | ~75 | 78.9 | 79.0 | 80.3 | ⬆️ |
+| Math/Math Reasoning | ~68 | 74.3 | 75.8 | 77.4 | ⬆️ |
+| Question Answering | ~74 | 78.7 | 78.9 | 75.8 | ↔️ Variable |
+| Instruction Following | ~72 | 76.9 | 77.3 | 77.9 | ⬆️ |
+| Conversation | ~70 | 74.0 | 74.5 | 74.4 | ↔️ Stable |
+| Reasoning/Commonsense | ~65 | 71.8 | 72.0 | 69.8 | ⬇️ Issue |
 
 ### Improvement Attribution
 
-| Source | Points | Round |
-|--------|--------|-------|
-| Bilingual keywords | +3.5 | R2 |
-| Category balancing | +0.4 | R2 |
-| Math clarity fixes | +0.9 | R3 |
-| Keyword expansion | TBD | R4 |
-| **Total** | **+4.8** | — |
+| Source | Points | Round | Notes |
+|--------|--------|-------|-------|
+| Bilingual keywords | +3.5 | R2 | ✅ Effective |
+| Category balancing | +0.4 | R2 | ✅ Effective |
+| Math clarity fixes | +0.9 | R3 | ✅ Effective |
+| Keyword expansion | **-1.5** | R4 | ⚠️ Backfired |
+| **Net Total** | **+3.3** | — | — |
 
 ---
 

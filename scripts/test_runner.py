@@ -673,13 +673,19 @@ class QalbTestRunner:
         
         return summary
     
-    def run_all_baseline_tests(self, round_num: int = 2):
+    def run_all_baseline_tests(self, round_num: int = 4):
         """Run all baseline tests for both Urdu and Roman scripts.
         
         Args:
-            round_num: Test round number (1 = original, 2 = improved keywords)
+            round_num: Test round number (1 = original, 2 = improved keywords, 3 = math fixes, 4 = expanded synonyms)
         """
-        if round_num == 2:
+        if round_num == 4:
+            urdu_tests = TESTS_DIR / "baseline" / "urdu_script_tests_round4.json"
+            roman_tests = TESTS_DIR / "baseline" / "roman_urdu_tests_round4.json"
+        elif round_num == 3:
+            urdu_tests = TESTS_DIR / "baseline" / "urdu_script_tests_round3.json"
+            roman_tests = TESTS_DIR / "baseline" / "roman_urdu_tests_round3.json"
+        elif round_num == 2:
             urdu_tests = TESTS_DIR / "baseline" / "urdu_script_tests_round2.json"
             roman_tests = TESTS_DIR / "baseline" / "roman_urdu_tests_round2.json"
         else:
@@ -750,7 +756,7 @@ class QalbTestRunner:
 def main():
     """Main entry point."""
     print("\n" + "="*60)
-    print("QALB MODEL TEST RUNNER - ROUND 2")
+    print("QALB MODEL TEST RUNNER - ROUND 4")
     print("fawadhs.dev")
     print("="*60)
     
@@ -761,9 +767,9 @@ def main():
         print("\n❌ Prerequisites check failed. Please fix the issues above.")
         sys.exit(1)
     
-    # Run tests - Round 2 with improved keywords
+    # Run tests - Round 4 with expanded synonym keywords
     try:
-        runner.run_all_baseline_tests(round_num=2)
+        runner.run_all_baseline_tests(round_num=4)
     except KeyboardInterrupt:
         print("\n\n👋 Test run interrupted. Progress has been saved.")
         print("   Run the script again to resume from where you left off.")
