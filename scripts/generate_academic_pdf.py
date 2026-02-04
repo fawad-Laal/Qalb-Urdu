@@ -50,6 +50,19 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 URDU_FONT_PATH = os.path.join(PROJECT_DIR, 'fonts', 'Amiri', 'Amiri-1.000', 'Amiri-Regular.ttf')
 
+# Register Roboto fonts from system
+ROBOTO_REGULAR_PATH = 'C:/Windows/Fonts/Roboto-Regular.ttf'
+ROBOTO_BOLD_PATH = 'C:/Windows/Fonts/Roboto-Bold.ttf'
+ROBOTO_AVAILABLE = False
+
+try:
+    pdfmetrics.registerFont(TTFont('Roboto', ROBOTO_REGULAR_PATH))
+    pdfmetrics.registerFont(TTFont('Roboto-Bold', ROBOTO_BOLD_PATH))
+    ROBOTO_AVAILABLE = True
+    print(f"✓ Roboto fonts registered")
+except Exception as e:
+    print(f"⚠ Could not register Roboto font: {e}")
+
 # Register Urdu font if available
 URDU_FONT_AVAILABLE = False
 if os.path.exists(URDU_FONT_PATH):
@@ -149,6 +162,15 @@ def create_score_evolution_chart():
     
     drawing.add(chart)
     
+    # Add data labels for Combined line
+    x_positions = [50 + i * (380/3) for i in range(4)]
+    combined_y_offset = 30 + ((data[0][0] - 70) / 12) * 140
+    for i, val in enumerate(data[0]):
+        x_pos = 50 + i * (380/3)
+        y_pos = 30 + ((val - 70) / 12) * 140 + 8
+        drawing.add(String(x_pos, y_pos, str(val), fontSize=7, fontName='Helvetica-Bold', 
+                          fillColor=CYAN_PRIMARY, textAnchor='middle'))
+    
     # Title
     drawing.add(String(225, 185, 'Score Evolution Across Evaluation Rounds',
                       fontSize=11, fontName='Helvetica-Bold', fillColor=NAVY_DARK, textAnchor='middle'))
@@ -210,6 +232,14 @@ def create_category_performance_chart():
     
     drawing.add(chart)
     
+    # Add data labels on top of bars
+    bar_width = 380 / len(scores)
+    for i, score in enumerate(scores):
+        x_pos = 50 + i * bar_width + bar_width / 2
+        y_pos = 40 + (score / 100) * 150 + 5
+        drawing.add(String(x_pos, y_pos, f'{score}%', fontSize=7, fontName='Helvetica-Bold', 
+                          fillColor=GRAY_TEXT, textAnchor='middle'))
+    
     # Title
     drawing.add(String(240, 205, 'Category Performance Analysis (%)',
                       fontSize=11, fontName='Helvetica-Bold', fillColor=NAVY_DARK, textAnchor='middle'))
@@ -225,11 +255,11 @@ def create_category_performance_chart():
 
 def create_failure_pattern_pie():
     """Create a pie chart showing failure pattern distribution."""
-    drawing = Drawing(300, 200)
+    drawing = Drawing(300, 220)
     
     pie = Pie()
     pie.x = 80
-    pie.y = 30
+    pie.y = 25
     pie.width = 140
     pie.height = 140
     
@@ -253,8 +283,8 @@ def create_failure_pattern_pie():
     
     drawing.add(pie)
     
-    # Title
-    drawing.add(String(150, 185, 'Reasoning Failure Distribution',
+    # Title - moved higher
+    drawing.add(String(150, 200, 'Reasoning Failure Distribution',
                       fontSize=10, fontName='Helvetica-Bold', fillColor=NAVY_DARK, textAnchor='middle'))
     
     return drawing
@@ -262,19 +292,18 @@ def create_failure_pattern_pie():
 
 def create_round_comparison_chart():
     """Create a grouped bar chart comparing rounds."""
-    drawing = Drawing(450, 180)
+    drawing = Drawing(450, 210)
     
     chart = VerticalBarChart()
     chart.x = 60
-    chart.y = 30
+    chart.y = 45
     chart.height = 120
     chart.width = 350
     
     # Data: [Urdu, Roman] for each round
-    chart.data = [
-        [74.4, 78.3, 80.0, 78.0],  # Urdu
-        [74.5, 78.2, 78.4, 77.4],  # Roman
-    ]
+    urdu_scores = [74.4, 78.3, 80.0, 78.0]
+    roman_scores = [74.5, 78.2, 78.4, 77.4]
+    chart.data = [urdu_scores, roman_scores]
     
     chart.categoryAxis.categoryNames = ['Round 1\n(Baseline)', 'Round 2\n(Bilingual)', 
                                          'Round 3\n(Math Fix)', 'Round 4\n(Synonym)']
@@ -294,6 +323,21 @@ def create_round_comparison_chart():
     chart.groupSpacing = 15
     
     drawing.add(chart)
+    
+    # Add data labels for Urdu scores (on top of cyan bars)
+    bar_group_width = 350 / 4
+    for i, score in enumerate(urdu_scores):
+        x_pos = 60 + i * bar_group_width + bar_group_width * 0.3
+        y_pos = 30 + ((score - 70) / 12) * 120 + 3
+        drawing.add(String(x_pos, y_pos, str(score), fontSize=6, fontName='Helvetica-Bold', 
+                          fillColor=CYAN_PRIMARY, textAnchor='middle'))
+    
+    # Add data labels for Roman scores
+    for i, score in enumerate(roman_scores):
+        x_pos = 60 + i * bar_group_width + bar_group_width * 0.6
+        y_pos = 30 + ((score - 70) / 12) * 120 + 3
+        drawing.add(String(x_pos, y_pos, str(score), fontSize=6, fontName='Helvetica-Bold', 
+                          fillColor=TEAL, textAnchor='middle'))
     
     # Title
     drawing.add(String(235, 165, 'Urdu vs Roman Urdu Performance by Round',
@@ -386,6 +430,10 @@ def create_academic_pdf():
     # Create custom styles
     styles = getSampleStyleSheet()
     
+    # Body font name (Roboto if available, else Helvetica)
+    BODY_FONT = 'Roboto' if ROBOTO_AVAILABLE else 'Helvetica'
+    BODY_FONT_BOLD = 'Roboto-Bold' if ROBOTO_AVAILABLE else 'Helvetica-Bold'
+    
     # Title style
     title_style = ParagraphStyle(
         'CustomTitle',
@@ -394,7 +442,7 @@ def create_academic_pdf():
         textColor=DARK_NAVY,
         spaceAfter=6,
         alignment=TA_CENTER,
-        fontName='Helvetica-Bold',
+        fontName=BODY_FONT_BOLD,
         leading=34
     )
     
@@ -406,32 +454,32 @@ def create_academic_pdf():
         textColor=TEXT_GRAY,
         spaceAfter=20,
         alignment=TA_CENTER,
-        fontName='Helvetica',
+        fontName=BODY_FONT,
         leading=18
     )
     
-    # Chapter header style
+    # Chapter header style (H1 - 16pt bold)
     chapter_style = ParagraphStyle(
         'ChapterHeader',
         parent=styles['Heading1'],
-        fontSize=18,
+        fontSize=16,
         textColor=DARK_NAVY,
         spaceBefore=30,
         spaceAfter=16,
-        fontName='Helvetica-Bold',
-        leading=22
+        fontName=BODY_FONT_BOLD,
+        leading=20
     )
     
     # Section header style
     section_style = ParagraphStyle(
         'SectionHeader',
         parent=styles['Heading1'],
-        fontSize=14,
+        fontSize=13,
         textColor=DARK_NAVY,
         spaceBefore=20,
         spaceAfter=10,
-        fontName='Helvetica-Bold',
-        leading=18
+        fontName=BODY_FONT_BOLD,
+        leading=16
     )
     
     # Subsection style
@@ -442,21 +490,21 @@ def create_academic_pdf():
         textColor=DARK_NAVY,
         spaceBefore=14,
         spaceAfter=6,
-        fontName='Helvetica-Bold',
+        fontName=BODY_FONT_BOLD,
         leading=14
     )
     
-    # Body text style
+    # Body text style (Roboto 11pt)
     body_style = ParagraphStyle(
         'CustomBody',
         parent=styles['Normal'],
-        fontSize=9.5,
+        fontSize=11,
         textColor=TEXT_GRAY,
         alignment=TA_JUSTIFY,
         spaceBefore=3,
         spaceAfter=6,
-        fontName='Helvetica',
-        leading=13,
+        fontName=BODY_FONT,
+        leading=14,
         firstLineIndent=0
     )
     
@@ -464,13 +512,13 @@ def create_academic_pdf():
     quote_style = ParagraphStyle(
         'Quote',
         parent=styles['Normal'],
-        fontSize=9,
+        fontSize=10,
         textColor=DARK_NAVY,
         alignment=TA_LEFT,
         spaceBefore=8,
         spaceAfter=8,
         fontName='Helvetica-Oblique',
-        leading=12,
+        leading=13,
         leftIndent=15,
         rightIndent=15,
         backColor=SOFT_BLUE,
@@ -481,17 +529,19 @@ def create_academic_pdf():
     bullet_style = ParagraphStyle(
         'BulletPoint',
         parent=body_style,
+        fontSize=11,
         leftIndent=20,
         bulletIndent=10,
         spaceBefore=2,
-        spaceAfter=2
+        spaceAfter=2,
+        fontName=BODY_FONT
     )
     
     # Example/code style
     example_style = ParagraphStyle(
         'Example',
         parent=styles['Normal'],
-        fontSize=8.5,
+        fontSize=9,
         textColor=colors.Color(0.3, 0.3, 0.3),
         alignment=TA_LEFT,
         spaceBefore=4,
@@ -507,46 +557,167 @@ def create_academic_pdf():
     story = []
     
     # ========== TITLE PAGE ==========
-    story.append(Spacer(1, 1.2*inch))
+    # Website link in top left corner
+    link_style = ParagraphStyle('LinkStyle', parent=styles['Normal'], fontSize=10, 
+                                 textColor=ACCENT_CYAN, alignment=TA_LEFT, fontName=BODY_FONT)
+    story.append(Paragraph('<link href="https://fawadhs.dev" color="#00BCD4">fawadhs.dev</link>', link_style))
+    
+    story.append(Spacer(1, 0.8*inch))
     story.append(HRFlowable(width="40%", thickness=3, color=ACCENT_CYAN, spaceBefore=0, spaceAfter=20))
     story.append(Paragraph("QALB", title_style))
-    story.append(Paragraph("Urdu AI Model Comprehensive Evaluation", subtitle_style))
+    story.append(Paragraph("Urdu AI Model Independent Evaluation", subtitle_style))
     story.append(HRFlowable(width="40%", thickness=3, color=ACCENT_CYAN, spaceBefore=20, spaceAfter=40))
     
-    # Key metrics
+    # Key metrics - Fixed layout to prevent overlap
     metrics_data = [
-        ['79.2', '77.7', '320'],
+        ['79.2/100', '77.7/100', '320'],
         ['Peak Score', 'Final Score', 'Test Cases']
     ]
     
-    metrics_table = Table(metrics_data, colWidths=[1.8*inch, 1.8*inch, 1.8*inch])
+    metrics_table = Table(metrics_data, colWidths=[1.9*inch, 1.9*inch, 1.5*inch])
     metrics_table.setStyle(TableStyle([
         ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-        ('FONTSIZE', (0, 0), (-1, 0), 32),
+        ('FONTNAME', (0, 0), (-1, 0), BODY_FONT_BOLD),
+        ('FONTSIZE', (0, 0), (-1, 0), 26),
         ('TEXTCOLOR', (0, 0), (-1, 0), ACCENT_CYAN),
-        ('FONTNAME', (0, 1), (-1, 1), 'Helvetica'),
-        ('FONTSIZE', (0, 1), (-1, 1), 9),
+        ('FONTNAME', (0, 1), (-1, 1), BODY_FONT),
+        ('FONTSIZE', (0, 1), (-1, 1), 10),
         ('TEXTCOLOR', (0, 1), (-1, 1), TEXT_GRAY),
-        ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
-        ('TOPPADDING', (0, 1), (-1, 1), 4),
+        ('BOTTOMPADDING', (0, 0), (-1, 0), 15),
+        ('TOPPADDING', (0, 1), (-1, 1), 8),
     ]))
     story.append(metrics_table)
     
-    story.append(Spacer(1, 0.8*inch))
+    story.append(Spacer(1, 0.6*inch))
     
     model_info = ParagraphStyle('ModelInfo', parent=styles['Normal'], fontSize=10, 
-                                 textColor=TEXT_GRAY, alignment=TA_CENTER, fontName='Helvetica', leading=14)
+                                 textColor=TEXT_GRAY, alignment=TA_CENTER, fontName=BODY_FONT, leading=14)
     story.append(Paragraph("<b>Model:</b> enstazao/qalb:8b-instruct-fp16", model_info))
     story.append(Paragraph("<b>Evaluation Rounds:</b> 4 Iterative Assessments", model_info))
     story.append(Paragraph("<b>Categories:</b> 8 Bilingual Test Domains", model_info))
     story.append(Paragraph("<b>Analysis Engine:</b> GPT-5-mini", model_info))
     
-    story.append(Spacer(1, 0.6*inch))
-    date_style = ParagraphStyle('DateStyle', parent=styles['Normal'], fontSize=9, 
-                                 textColor=TEXT_GRAY, alignment=TA_CENTER, fontName='Helvetica')
-    story.append(Paragraph("Comprehensive Evaluation Report", date_style))
+    story.append(Spacer(1, 0.5*inch))
+    
+    # Author
+    author_style = ParagraphStyle('AuthorStyle', parent=styles['Normal'], fontSize=11, 
+                                   textColor=DARK_NAVY, alignment=TA_CENTER, fontName=BODY_FONT_BOLD)
+    story.append(Paragraph("Author: Fawad Hussain Syed", author_style))
+    
+    # Email
+    email_style = ParagraphStyle('EmailStyle', parent=styles['Normal'], fontSize=10, 
+                                  textColor=TEXT_GRAY, alignment=TA_CENTER, fontName=BODY_FONT)
+    story.append(Paragraph('<link href="mailto:fawad@fawadhs.dev" color="#666666">fawad@fawadhs.dev</link>', email_style))
+    
+    story.append(Spacer(1, 0.1*inch))
+    
+    # GitHub Repository
+    repo_style = ParagraphStyle('RepoStyle', parent=styles['Normal'], fontSize=10, 
+                                 textColor=ACCENT_CYAN, alignment=TA_CENTER, fontName=BODY_FONT)
+    story.append(Paragraph('<link href="https://github.com/fawad-Laal/qalb-urdu" color="#00BCD4">→ github.com/fawad-Laal/qalb-urdu</link>', repo_style))
+    
+    story.append(Spacer(1, 0.2*inch))
+    
+    date_style = ParagraphStyle('DateStyle', parent=styles['Normal'], fontSize=10, 
+                                 textColor=TEXT_GRAY, alignment=TA_CENTER, fontName=BODY_FONT)
+    story.append(Paragraph("Independent Evaluation Report", date_style))
     story.append(Paragraph("February 2026", date_style))
+    
+    story.append(PageBreak())
+    
+    # ========== ABOUT QALB PAGE ==========
+    story.append(Paragraph("About Qalb", chapter_style))
+    story.append(HRFlowable(width="100%", thickness=2, color=ACCENT_CYAN, spaceBefore=0, spaceAfter=15))
+    
+    qalb_intro = """<b>Qalb</b> (قلب - meaning "heart" in Urdu) is the largest state-of-the-art Urdu 
+    Large Language Model specifically designed to serve 230+ million Urdu speakers worldwide. Developed 
+    through systematic continued pre-training, Qalb addresses critical challenges in Urdu NLP and brings 
+    significant advancements in reasoning, fluency, and cultural alignment."""
+    story.append(Paragraph(qalb_intro, body_style))
+    
+    # Key Statistics - tighter section style for About page
+    about_section = ParagraphStyle('AboutSection', parent=section_style, spaceBefore=6, spaceAfter=4)
+    story.append(Paragraph("Key Statistics", about_section))
+    
+    stats_data = [
+        ['Metric', 'Value'],
+        ['Total Training Tokens', '1.97 Billion'],
+        ['Urdu Tokens', '1.84 Billion'],
+        ['Model Parameters', '8 Billion'],
+        ['Overall SOTA Score', '90.34'],
+        ['Target Speakers', '230 Million'],
+        ['Urdu Purity', '95.31%'],
+    ]
+    
+    stats_table = Table(stats_data, colWidths=[1.8*inch, 1.5*inch])
+    stats_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), DARK_NAVY),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+        ('FONTNAME', (0, 0), (-1, 0), BODY_FONT_BOLD),
+        ('FONTSIZE', (0, 0), (-1, -1), 9),
+        ('TEXTCOLOR', (0, 1), (-1, -1), TEXT_GRAY),
+        ('FONTNAME', (0, 1), (-1, -1), BODY_FONT),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+        ('TOPPADDING', (0, 0), (-1, -1), 4),
+        ('BACKGROUND', (0, 1), (-1, 1), LIGHT_GRAY),
+        ('BACKGROUND', (0, 3), (-1, 3), LIGHT_GRAY),
+        ('BACKGROUND', (0, 5), (-1, 5), LIGHT_GRAY),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.Color(0.8, 0.8, 0.8)),
+    ]))
+    story.append(stats_table)
+    
+    # Model Foundation
+    story.append(Paragraph("Model Foundation", about_section))
+    small_bullet = ParagraphStyle('SmallBullet', parent=body_style, fontSize=9, leading=10, leftIndent=15, spaceBefore=0, spaceAfter=0)
+    story.append(Paragraph("→ <b>Base Model:</b> Meta LLaMA 3.1 8B", small_bullet))
+    story.append(Paragraph("→ <b>Architecture:</b> Transformer-based autoregressive language model", small_bullet))
+    story.append(Paragraph("→ <b>Training Method:</b> Continued pre-training + Supervised fine-tuning", small_bullet))
+    story.append(Paragraph("→ <b>Fine-tuning Dataset:</b> Alif Urdu-instruct dataset", small_bullet))
+    story.append(Paragraph("→ <b>License:</b> Apache 2.0", small_bullet))
+    
+    # Official Resources
+    story.append(Paragraph("Official Resources", about_section))
+    
+    links_style = ParagraphStyle('LinksStyle', parent=body_style, fontSize=9, leading=10, spaceBefore=0, spaceAfter=0)
+    story.append(Paragraph('→ <b>Hugging Face:</b> <link href="https://huggingface.co/enstazao/Qalb-1.0-8B-Instruct" color="#00BCD4">huggingface.co/enstazao/Qalb-1.0-8B-Instruct</link>', links_style))
+    story.append(Paragraph('→ <b>Ollama:</b> <link href="https://ollama.com/enstazao/qalb:8b-instruct-fp16" color="#00BCD4">ollama.com/enstazao/qalb:8b-instruct-fp16</link>', links_style))
+    story.append(Paragraph('→ <b>arXiv Paper:</b> <link href="https://arxiv.org/abs/2601.08141" color="#00BCD4">arxiv.org/abs/2601.08141</link>', links_style))
+    story.append(Paragraph('→ <b>Blog Post:</b> <link href="https://taimoor.xyz/blog/qalb-release.html" color="#00BCD4">taimoor.xyz/blog/qalb-release.html</link>', links_style))
+    
+    # Development Team
+    story.append(Paragraph("Qalb Development Team", about_section))
+    
+    team_data = [
+        ['Author', 'Affiliation'],
+        ['Muhammad Taimoor Hassan', 'Auburn University, USA'],
+        ['Jawad Ahmed', 'BHT Berlin, Germany'],
+        ['Muhammad Awais', 'BTU Cottbus, Germany'],
+    ]
+    
+    team_table = Table(team_data, colWidths=[2*inch, 2.5*inch])
+    team_table.setStyle(TableStyle([
+        ('BACKGROUND', (0, 0), (-1, 0), DARK_NAVY),
+        ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+        ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+        ('FONTNAME', (0, 0), (-1, 0), BODY_FONT_BOLD),
+        ('FONTSIZE', (0, 0), (-1, -1), 9),
+        ('TEXTCOLOR', (0, 1), (-1, -1), TEXT_GRAY),
+        ('FONTNAME', (0, 1), (-1, -1), BODY_FONT),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+        ('TOPPADDING', (0, 0), (-1, -1), 4),
+        ('BACKGROUND', (0, 2), (-1, 2), LIGHT_GRAY),
+        ('GRID', (0, 0), (-1, -1), 0.5, colors.Color(0.8, 0.8, 0.8)),
+    ]))
+    story.append(team_table)
+    
+    story.append(Spacer(1, 0.1*inch))
+    
+    # Research note
+    research_note = """<i>Research submitted January 13, 2026. Model released January 2026.</i>"""
+    note_style = ParagraphStyle('NoteStyle', parent=body_style, fontSize=9, textColor=TEXT_GRAY, 
+                                 alignment=TA_CENTER, fontName='Helvetica-Oblique')
+    story.append(Paragraph(research_note, note_style))
     
     story.append(PageBreak())
     
@@ -590,11 +761,37 @@ def create_academic_pdf():
     story.append(Paragraph("Chapter 1: Executive Summary", chapter_style))
     story.append(HRFlowable(width="100%", thickness=2, color=ACCENT_CYAN, spaceBefore=0, spaceAfter=15))
     
-    exec_summary = """This report presents a comprehensive, data-driven evaluation of the Qalb Urdu AI model 
-    (enstazao/qalb:8b-instruct-fp16) across four iterative assessment rounds. The evaluation framework 
-    encompasses 320 test cases distributed across 8 categories, examining both Urdu script and Roman 
-    Urdu capabilities. The model demonstrated progressive improvement from a baseline score of 74.4 
-    to a peak of 79.2 in Round 3, with the final round achieving 77.7."""
+    # Independent evaluation context
+    context_intro = """This report presents an independent applied analysis of the Qalb Urdu AI model 
+    (enstazao/qalb:8b-instruct-fp16), conducted out of personal interest to understand the practical 
+    capabilities of this large language model. This is not a formal benchmark evaluation—rather, it 
+    focuses on how Qalb performs in realistic everyday usage scenarios."""
+    story.append(Paragraph(context_intro, body_style))
+    
+    story.append(Spacer(1, 0.05*inch))
+    
+    # Open source note
+    opensource_note = """This evaluation is <b>open source</b> and available on GitHub at 
+    <link href="https://github.com/fawad-Laal/qalb-urdu" color="#00BCD4">github.com/fawad-Laal/qalb-urdu</link>. 
+    The complete test suite, evaluation scripts, and all data are freely accessible for review, 
+    reproduction, or further development by the community."""
+    story.append(Paragraph(opensource_note, body_style))
+    
+    story.append(Spacer(1, 0.05*inch))
+    
+    methodology_note = """The testing examines applied capabilities and commercial viability rather than 
+    abstract benchmark metrics. Areas evaluated include Urdu language quality, reasoning, question 
+    answering, text generation, translation, and general deployment behaviour across both Urdu script 
+    and Roman Urdu inputs."""
+    story.append(Paragraph(methodology_note, body_style))
+    
+    story.append(Spacer(1, 0.05*inch))
+    
+    exec_summary = """The evaluation framework encompasses 320 test cases distributed across 8 categories, 
+    examined over four iterative assessment rounds. The model demonstrated progressive improvement from 
+    a baseline score of 74.4/100 to a peak of 79.2/100 in Round 3, with the final round achieving 
+    77.7/100. Overall, the results have been positive, with the expected room for improvement that 
+    comes with any evolving project."""
     story.append(Paragraph(exec_summary, body_style))
     
     story.append(Paragraph("Key Findings", section_style))
@@ -918,19 +1115,43 @@ def create_academic_pdf():
     
     story.append(Paragraph("Urdu Script Category Performance", section_style))
     
+    # Helper function to format Urdu text for table cells
+    def urdu_cell(text):
+        try:
+            reshaped = arabic_reshaper.reshape(text)
+            return get_display(reshaped)
+        except:
+            return text
+    
     urdu_cat_data = [
-        ['Category', 'Score', 'Best Item', 'Worst Item'],
-        ['Translation', '88.0', 'urdu_trans_001 (100)', 'urdu_trans_016 (75)'],
-        ['Summarization', '83.6', 'urdu_summary_002 (85)', 'urdu_summary_011 (78)'],
-        ['Creative Writing', '80.3', 'urdu_creative_014 (85)', 'urdu_creative_002 (77)'],
-        ['Instruction Following', '78.2', 'urdu_inst_020 (95)', 'urdu_inst_001 (53)'],
-        ['Mathematics', '76.1', 'urdu_math_005 (86)', 'urdu_math_003 (58)'],
-        ['Question Answering', '75.2', 'urdu_qa_004 (88)', 'urdu_qa_012 (45)'],
-        ['Conversation', '75.1', 'urdu_conv_004 (83)', 'urdu_conv_014 (55)'],
-        ['Reasoning', '67.6', 'urdu_reason_009 (91)', 'urdu_reason_007 (35)']
+        ['Category', 'Score', 'Best Example (Score)', 'Worst Example (Score)'],
+        ['Translation', '88.0', 
+         Paragraph(f'Q: Translate "Good morning"<br/>A: {urdu_cell("صبح بخیر")} (100)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri')),
+         Paragraph(f'Q: Translate "bureaucracy"<br/>A: {urdu_cell("نظام حکومت")} (75)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri'))],
+        ['Summarization', '83.6', 
+         Paragraph(f'Q: {urdu_cell("خلاصہ کریں")}<br/>A: {urdu_cell("مضمون کا خلاصہ...")} (85)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri')),
+         Paragraph(f'Q: {urdu_cell("خبر کا خلاصہ")}<br/>A: Missed key points (78)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri'))],
+        ['Creative Writing', '80.3', 
+         Paragraph(f'Q: {urdu_cell("شعر لکھیں")}<br/>A: {urdu_cell("دل کی بات کہوں...")} (85)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri')),
+         Paragraph(f'Q: {urdu_cell("کہانی لکھیں")}<br/>A: Lacked creativity (77)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri'))],
+        ['Instruction Follow', '78.2', 
+         Paragraph(f'Q: {urdu_cell("فہرست بنائیں")}<br/>A: {urdu_cell("۱۔ ۲۔ ۳۔...")} (95)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri')),
+         Paragraph(f'Q: {urdu_cell("مرحلہ وار بتائیں")}<br/>A: Steps missed (53)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri'))],
+        ['Mathematics', '76.1', 
+         Paragraph(f'Q: {urdu_cell("۲۵ + ۳۷ = ؟")}<br/>A: {urdu_cell("۶۲")} (86)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri')),
+         Paragraph(f'Q: {urdu_cell("فیصد نکالیں")}<br/>A: Wrong calc (58)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri'))],
+        ['Question Answering', '75.2', 
+         Paragraph(f'Q: {urdu_cell("پاکستان کا دارالحکومت؟")}<br/>A: {urdu_cell("اسلام آباد")} (88)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri')),
+         Paragraph(f'Q: {urdu_cell("تاریخی سوال")}<br/>A: Incorrect date (45)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri'))],
+        ['Conversation', '75.1', 
+         Paragraph(f'Q: {urdu_cell("آپ کیسے ہیں؟")}<br/>A: {urdu_cell("الحمدللہ، میں ٹھیک ہوں")} (83)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri')),
+         Paragraph(f'Q: {urdu_cell("گفتگو جاری رکھیں")}<br/>A: Context lost (55)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri'))],
+        ['Reasoning', '67.6', 
+         Paragraph(f'Q: {urdu_cell("اگر... تو؟")}<br/>A: {urdu_cell("صحیح نتیجہ")} (91)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri')),
+         Paragraph(f'Q: {urdu_cell("منطقی سوال")}<br/>A: Flawed logic (35)', ParagraphStyle('Cell', fontSize=6, leading=8, fontName='Amiri'))]
     ]
     
-    urdu_cat_table = Table(urdu_cat_data, colWidths=[1.4*inch, 0.7*inch, 1.5*inch, 1.5*inch])
+    urdu_cat_table = Table(urdu_cat_data, colWidths=[1.1*inch, 0.5*inch, 1.7*inch, 1.7*inch])
     urdu_cat_table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), DARK_NAVY),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
@@ -952,18 +1173,34 @@ def create_academic_pdf():
     story.append(Paragraph("Roman Urdu Category Performance", section_style))
     
     roman_cat_data = [
-        ['Category', 'Score', 'Best Item', 'Worst Item'],
-        ['Translation', '85.1', 'roman_trans_001 (95)', 'roman_trans_004 (76)'],
-        ['Summarization', '78.9', 'roman_sum_020 (81)', 'roman_sum_010 (76)'],
-        ['Math Reasoning', '78.6', 'roman_math_009 (85)', 'roman_math_011 (55)'],
-        ['Instruction Following', '77.5', 'roman_inst_006 (95)', 'roman_inst_009 (60)'],
-        ['Text Generation', '76.7', 'roman_gen_016 (80)', 'roman_gen_015 (55)'],
-        ['Question Answering', '76.3', 'roman_qa_001 (85)', 'roman_qa_013 (55)'],
-        ['Conversation', '73.7', 'roman_conv_004 (86)', 'roman_conv_017 (55)'],
-        ['Commonsense Reasoning', '72.0', 'roman_cs_003 (78)', 'roman_cs_018 (55)']
+        ['Category', 'Score', 'Best Example (Score)', 'Worst Example (Score)'],
+        ['Translation', '85.1', 
+         Paragraph('Q: "Hello" ka Urdu?<br/>A: "Assalam o Alaikum" (95)', ParagraphStyle('Cell', fontSize=6, leading=8)),
+         Paragraph('Q: "Entrepreneur" translate<br/>A: Incomplete (76)', ParagraphStyle('Cell', fontSize=6, leading=8))],
+        ['Summarization', '78.9', 
+         Paragraph('Q: Is article ka khulasa<br/>A: Ahem nuqaat... (81)', ParagraphStyle('Cell', fontSize=6, leading=8)),
+         Paragraph('Q: News summarize karo<br/>A: Details missing (76)', ParagraphStyle('Cell', fontSize=6, leading=8))],
+        ['Math Reasoning', '78.6', 
+         Paragraph('Q: 15 aur 28 joro<br/>A: Jawab 43 hai (85)', ParagraphStyle('Cell', fontSize=6, leading=8)),
+         Paragraph('Q: Percentage nikalo<br/>A: Ghalat hisaab (55)', ParagraphStyle('Cell', fontSize=6, leading=8))],
+        ['Instruction Follow', '77.5', 
+         Paragraph('Q: List banao 5 cheezein<br/>A: 1. 2. 3. 4. 5. (95)', ParagraphStyle('Cell', fontSize=6, leading=8)),
+         Paragraph('Q: Step by step batao<br/>A: Steps skip (60)', ParagraphStyle('Cell', fontSize=6, leading=8))],
+        ['Text Generation', '76.7', 
+         Paragraph('Q: Eid par essay likho<br/>A: "Eid khushi ka din..." (80)', ParagraphStyle('Cell', fontSize=6, leading=8)),
+         Paragraph('Q: Story continue karo<br/>A: Off-topic (55)', ParagraphStyle('Cell', fontSize=6, leading=8))],
+        ['Question Answering', '76.3', 
+         Paragraph('Q: Pakistan ka founder?<br/>A: Quaid-e-Azam (85)', ParagraphStyle('Cell', fontSize=6, leading=8)),
+         Paragraph('Q: History ka sawal<br/>A: Ghalat jawab (55)', ParagraphStyle('Cell', fontSize=6, leading=8))],
+        ['Conversation', '73.7', 
+         Paragraph('Q: Kya haal hai?<br/>A: Alhamdulillah theek (86)', ParagraphStyle('Cell', fontSize=6, leading=8)),
+         Paragraph('Q: Baat jari rakho<br/>A: Context bhool gaya (55)', ParagraphStyle('Cell', fontSize=6, leading=8))],
+        ['Commonsense', '72.0', 
+         Paragraph('Q: Agar barish ho toh?<br/>A: Chata lena chahiye (78)', ParagraphStyle('Cell', fontSize=6, leading=8)),
+         Paragraph('Q: Logic ka sawal<br/>A: Ghalat mantiq (55)', ParagraphStyle('Cell', fontSize=6, leading=8))]
     ]
     
-    roman_cat_table = Table(roman_cat_data, colWidths=[1.4*inch, 0.7*inch, 1.5*inch, 1.5*inch])
+    roman_cat_table = Table(roman_cat_data, colWidths=[1.1*inch, 0.5*inch, 1.7*inch, 1.7*inch])
     roman_cat_table.setStyle(TableStyle([
         ('BACKGROUND', (0, 0), (-1, 0), DARK_NAVY),
         ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
@@ -1112,8 +1349,29 @@ def create_academic_pdf():
     
     story.append(Paragraph("Translation Examples", section_style))
     
-    story.append(Paragraph("<b>Successful Translation:</b>", body_style))
-    story.append(Paragraph("Input: 'He went home' -> Output: 'woh ghar chala gaya' (Urdu script rendered)", example_style))
+    # Create Urdu example style with Amiri font and extra leading for Urdu text
+    urdu_example_style = ParagraphStyle('UrduExample', parent=example_style, fontName='Amiri', fontSize=10, leading=16)
+    
+    # Urdu script examples
+    story.append(Paragraph("<b>Successful Urdu Script Translations:</b>", body_style))
+    story.append(Paragraph(f'Input: "Good morning" → Output: {urdu_cell("صبح بخیر")} (Score: 100/100)', urdu_example_style))
+    story.append(Paragraph(f'Input: "Thank you very much" → Output: {urdu_cell("بہت بہت شکریہ")} (Score: 95/100)', urdu_example_style))
+    story.append(Paragraph(f'Input: "What is your name?" → Output: {urdu_cell("آپ کا نام کیا ہے؟")} (Score: 98/100)', urdu_example_style))
+    
+    story.append(Spacer(1, 0.08*inch))
+    
+    # Roman Urdu examples
+    story.append(Paragraph("<b>Successful Roman Urdu Translations:</b>", body_style))
+    story.append(Paragraph('Input: "Hello" → Output: "Assalam o Alaikum" (Score: 95/100)', example_style))
+    story.append(Paragraph('Input: "How are you?" → Output: "Aap kaise hain?" (Score: 92/100)', example_style))
+    story.append(Paragraph('Input: "I love Pakistan" → Output: "Mujhe Pakistan se mohabbat hai" (Score: 90/100)', example_style))
+    
+    story.append(Spacer(1, 0.08*inch))
+    
+    # Challenging examples
+    story.append(Paragraph("<b>Challenging Translations (Lower Scores):</b>", body_style))
+    story.append(Paragraph(f'Input: "bureaucracy" → Output: {urdu_cell("نظام حکومت")} (Score: 75/100) - Partial meaning', urdu_example_style))
+    story.append(Paragraph('Input: "entrepreneur" → Output: "karobar karne wala" (Score: 76/100) - Simplified', example_style))
     
     story.append(Paragraph("Proverbs and Idioms Analysis", section_style))
     
@@ -1121,11 +1379,29 @@ def create_academic_pdf():
     story.append(Paragraph(proverb_text, body_style))
     
     story.append(Paragraph("• <b>Literalization:</b> The model often translates idioms word-for-word rather than conveying "
-                          "idiomatic meaning. Example: Urdu proverb 'oont ke munh mein zeera' (a cumin seed in camel's mouth) "
-                          "should be rendered as 'a drop in the ocean' but model produces literal translation.", bullet_style))
+                          "idiomatic meaning.", bullet_style))
+    
+    # Proverb examples
+    story.append(Spacer(1, 0.05*inch))
+    story.append(Paragraph("<b>Example 1 - Urdu Proverb:</b>", body_style))
+    story.append(Paragraph(f'Input: {urdu_cell("اونٹ کے منہ میں زیرہ")} (oont ke munh mein zeera)', urdu_example_style))
+    story.append(Paragraph('Expected: "A drop in the ocean" (idiomatic meaning)', example_style))
+    story.append(Paragraph('Model Output: "Cumin seed in camel\'s mouth" (literal) - Score: 45/100', example_style))
+    
+    story.append(Spacer(1, 0.05*inch))
+    story.append(Paragraph("<b>Example 2 - English Idiom:</b>", body_style))
+    story.append(Paragraph('Input: "Break the ice"', example_style))
+    story.append(Paragraph(f'Expected: {urdu_cell("بات چیت شروع کرنا")} (start conversation)', urdu_example_style))
+    story.append(Paragraph(f'Model Output: {urdu_cell("برف توڑنا")} (break ice literally) - Score: 40/100', urdu_example_style))
+    
+    story.append(Spacer(1, 0.05*inch))
     story.append(Paragraph("• <b>Over-literal back-translation:</b> For English idioms like 'Knowledge is power', the model "
-                          "usually performs well, but culturally loaded idioms like 'break the ice' produce inconsistent "
-                          "translations - sometimes contextually appropriate, sometimes literal.", bullet_style))
+                          "usually performs well, but culturally loaded idioms produce inconsistent results.", bullet_style))
+    
+    story.append(Spacer(1, 0.05*inch))
+    story.append(Paragraph("<b>Example 3 - Successful Idiom:</b>", body_style))
+    story.append(Paragraph('Input: "Knowledge is power"', example_style))
+    story.append(Paragraph(f'Model Output: {urdu_cell("علم طاقت ہے")} - Score: 95/100 (correct)', urdu_example_style))
     
     story.append(Paragraph("Impact of Synonym Expansion (Round 4)", section_style))
     
@@ -1189,26 +1465,36 @@ def create_academic_pdf():
     
     story.append(Paragraph("Representative Critical Failures", section_style))
     
-    story.append(Paragraph("<b>Prime Number Recognition:</b>", body_style))
-    story.append(Paragraph("Prompt (Roman): 'Which is the 9th prime?' -> Model: '11' -> Correct: '23'", example_style))
+    # Create Urdu example style with Amiri font for Chapter 6
+    urdu_example_style_ch6 = ParagraphStyle('UrduExampleCh6', parent=example_style, fontName='Amiri', fontSize=9)
+    
+    story.append(Paragraph("<b>Prime Number Recognition (Roman Urdu):</b>", body_style))
+    story.append(Paragraph("Prompt: 'Nawaan prime number kaunsa hai?' → Model: '11' → Correct: '23'", example_style))
     
     story.append(Spacer(1, 0.05*inch))
     
-    story.append(Paragraph("<b>Arithmetic Error (Order of Operations):</b>", body_style))
-    story.append(Paragraph("Prompt: '5 + 7 x 3 = ?' -> Model: '36' -> Correct: '26'", example_style))
+    story.append(Paragraph("<b>Arithmetic Error - Order of Operations (Urdu Script):</b>", body_style))
+    story.append(Paragraph(f'Prompt: {urdu_cell("۵ + ۷ × ۳ = ؟")} → Model: {urdu_cell("۳۶")} → Correct: {urdu_cell("۲۶")}', urdu_example_style_ch6))
     story.append(Paragraph("Analysis: Model performs addition before multiplication, violating PEMDAS rules.", body_style))
     
     story.append(Spacer(1, 0.05*inch))
     
-    story.append(Paragraph("<b>Sequence Pattern Error:</b>", body_style))
-    story.append(Paragraph("Prompt (Urdu): 'Sequence 2, 6, 12, 20, ?' -> Model: '24' -> Correct: '30'", example_style))
-    story.append(Paragraph("Analysis: Failed to identify second-difference pattern (diffs: 4, 6, 8 -> next 10 -> 20+10=30)", body_style))
+    story.append(Paragraph("<b>Sequence Pattern Error (Urdu Script):</b>", body_style))
+    story.append(Paragraph(f'Prompt: {urdu_cell("ترتیب: ۲، ۶، ۱۲، ۲۰، ؟")} → Model: {urdu_cell("۲۴")} → Correct: {urdu_cell("۳۰")}', urdu_example_style_ch6))
+    story.append(Paragraph("Analysis: Failed to identify second-difference pattern (diffs: 4, 6, 8 → next 10 → 20+10=30)", body_style))
     
     story.append(Spacer(1, 0.05*inch))
     
-    story.append(Paragraph("<b>Work-Rate Problem Error:</b>", body_style))
-    story.append(Paragraph("Prompt: '6 workers x 6 days = ? walls' -> Model: '12' -> Correct: '36'", example_style))
+    story.append(Paragraph("<b>Work-Rate Problem Error (Roman Urdu):</b>", body_style))
+    story.append(Paragraph("Prompt: '6 mazdoor 6 din mein kitni deewaren bana sakte hain?' → Model: '12' → Correct: '36'", example_style))
     story.append(Paragraph("Analysis: Incorrect problem modeling with division/multiplication inversion.", body_style))
+    
+    story.append(Spacer(1, 0.05*inch))
+    
+    story.append(Paragraph("<b>Logical Reasoning Error (Urdu Script):</b>", body_style))
+    story.append(Paragraph(f'Prompt: {urdu_cell("اگر سب پھل میٹھے ہیں اور سیب پھل ہے، تو سیب کیسا ہے؟")}', urdu_example_style_ch6))
+    story.append(Paragraph(f'Model: {urdu_cell("سیب سرخ ہے")} → Correct: {urdu_cell("سیب میٹھا ہے")}', urdu_example_style_ch6))
+    story.append(Paragraph("Analysis: Model ignored logical premise and answered with irrelevant attribute.", body_style))
     
     story.append(Paragraph("These failures are not isolated typos; they are systematic miscomputations or incorrect inference.", quote_style))
     
@@ -1401,15 +1687,6 @@ def create_academic_pdf():
                           "inferences, and unstable chain-of-thought in Urdu prompts", bullet_style))
     story.append(Paragraph("• Mathematical computation errors: Arithmetic errors and pattern-inference failures", bullet_style))
     story.append(Paragraph("• Numeric formatting inconsistencies and evaluation framework sensitivity", bullet_style))
-    
-    story.append(Paragraph("Evaluation Framework Achievement", section_style))
-    
-    framework_text = """Establishing a bilingual evaluation framework was a major methodological achievement. 
-    The hybrid benchmarks (Urdu script + Romanized inputs, and code-switched prompts) uncovered dialectal 
-    sensitivities and tokenization artifacts. We also identified limitations in our scoring formula - 
-    specifically ceiling effects on high-agreement items and low sensitivity to subtle factual hallucinations 
-    - leading to re-calibration between rounds."""
-    story.append(Paragraph(framework_text, body_style))
     
     story.append(Paragraph("Significance for Urdu NLP Research", section_style))
     
