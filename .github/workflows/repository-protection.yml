@@ -1,0 +1,109 @@
+name: Repository Protection Checker
+
+# This workflow helps protect the repository by:
+# 1. Checking for potentially dangerous operations
+# 2. Validating branch protection rules are in place
+# 3. Ensuring CODEOWNERS file is respected
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  check-protection:
+    name: Verify Repository Protection
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for comprehensive checks
+      
+      - name: Check for force push indicators
+        run: |
+          echo "Checking for force push indicators..."
+          
+          # This is informational - actual force push prevention happens at branch protection level
+          if git log --oneline --all --decorate | grep -i "force\|rebase" ; then
+            echo "⚠️ Warning: Commit history shows signs of rebasing or force operations"
+            echo "Ensure branch protection rules prevent force pushes"
+          else
+            echo "✅ No force push indicators detected"
+          fi
+      
+      - name: Verify CODEOWNERS file exists
+        run: |
+          if [ -f ".github/CODEOWNERS" ]; then
+            echo "✅ CODEOWNERS file exists"
+            echo "Content preview:"
+            head -20 .github/CODEOWNERS
+          else
+            echo "❌ ERROR: CODEOWNERS file is missing!"
+            exit 1
+          fi
+      
+      - name: Verify critical files are protected
+        run: |
+          echo "Checking if critical files are protected in CODEOWNERS..."
+          
+          critical_files=(
+            "pyproject.toml"
+            "requirements.txt"
+            "LICENSE"
+            "README.md"
+            ".gitignore"
+          )
+          
+          missing_protection=0
+          
+          for file in "${critical_files[@]}"; do
+            if [ -f "$file" ]; then
+              if ! grep -q "$file" .github/CODEOWNERS 2>/dev/null; then
+                echo "⚠️ Warning: $file exists but may not be protected in CODEOWNERS"
+                missing_protection=$((missing_protection + 1))
+              else
+                echo "✅ $file is protected in CODEOWNERS"
+              fi
+            fi
+          done
+          
+          if [ $missing_protection -gt 0 ]; then
+            echo "⚠️ $missing_protection critical file(s) may lack CODEOWNERS protection"
+          else
+            echo "✅ All critical files are protected"
+          fi
+      
+      - name: Check branch protection documentation
+        run: |
+          if [ -f ".github/BRANCH_PROTECTION.md" ]; then
+            echo "✅ Branch protection documentation exists"
+            echo ""
+            echo "📖 Quick reference: see .github/BRANCH_PROTECTION.md for setup instructions"
+          else
+            echo "⚠️ Warning: Branch protection documentation not found"
+          fi
+      
+      - name: Security reminders
+        run: |
+          echo ""
+          echo "🛡️ Repository Protection Checklist:"
+          echo ""
+          echo "Ensure the following are configured in GitHub Settings → Branches:"
+          echo "  ☑ Require pull request reviews before merging"
+          echo "  ☑ Require review from Code Owners"
+          echo "  ☑ Block force pushes"
+          echo "  ☑ Block branch deletions"
+          echo "  ☑ Require status checks to pass"
+          echo "  ☑ Require conversation resolution"
+          echo ""
+          echo "For detailed instructions, see: .github/BRANCH_PROTECTION.md"
