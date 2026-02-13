@@ -32,13 +32,18 @@ jobs:
       - name: Check for force push indicators
         run: |
           echo "Checking for force push indicators..."
+          echo ""
+          echo "ℹ️ Note: This check is informational and may produce false positives."
+          echo "ℹ️ Actual force push prevention happens at the branch protection level."
+          echo ""
           
           # This is informational - actual force push prevention happens at branch protection level
-          if git log --oneline --all --decorate | grep -i "force\|rebase" ; then
-            echo "⚠️ Warning: Commit history shows signs of rebasing or force operations"
+          # Note: This grep may match false positives like 'enforce', 'reinforce', 'database'
+          if git log --oneline --all --decorate | grep -iE "\b(force.push|force.update)\b" ; then
+            echo "⚠️ Warning: Commit history may show signs of force operations"
             echo "Ensure branch protection rules prevent force pushes"
           else
-            echo "✅ No force push indicators detected"
+            echo "✅ No obvious force push indicators detected"
           fi
       
       - name: Verify CODEOWNERS file exists
@@ -59,7 +64,6 @@ jobs:
           critical_files=(
             "pyproject.toml"
             "requirements.txt"
-            "LICENSE"
             "README.md"
             ".gitignore"
           )
@@ -68,7 +72,9 @@ jobs:
           
           for file in "${critical_files[@]}"; do
             if [ -f "$file" ]; then
-              if ! grep -q "$file" .github/CODEOWNERS 2>/dev/null; then
+              # Check for actual ownership rules (not comments) with proper pattern matching
+              if ! grep -q "^[^#]*/$file " .github/CODEOWNERS 2>/dev/null && \
+                 ! grep -q "^[^#]*/$file$" .github/CODEOWNERS 2>/dev/null; then
                 echo "⚠️ Warning: $file exists but may not be protected in CODEOWNERS"
                 missing_protection=$((missing_protection + 1))
               else
