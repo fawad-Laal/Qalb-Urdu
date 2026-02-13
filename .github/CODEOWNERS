@@ -1,0 +1,26 @@
+# CODEOWNERS
+# This file defines individuals or teams that are responsible for code in this repository.
+# Code owners are automatically requested for review when someone opens a pull request 
+# that modifies code that they own.
+#
+# More info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Repository owner is the default code owner for everything
+* @fawad-Laal
+
+# Critical configuration files require explicit review
+/pyproject.toml @fawad-Laal
+/requirements.txt @fawad-Laal
+/.github/ @fawad-Laal
+/.gitignore @fawad-Laal
+
+# License file protection (if/when added)
+# /LICENSE @fawad-Laal
+
+# Documentation requires review
+/README.md @fawad-Laal
+/docs/ @fawad-Laal
+
+# Test data and evaluation scripts
+/data/baseline/ @fawad-Laal
+/scripts/ @fawad-Laal

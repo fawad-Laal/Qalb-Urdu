@@ -255,6 +255,8 @@ Contributions are welcome! Please:
 4. Push to the branch (`git push origin feature/new-tests`)
 5. Open a Pull Request
 
+**Note**: This repository is protected by branch protection rules and code ownership requirements. Pull requests require review approval from code owners before merging. See [`.github/README.md`](.github/README.md) for details.
+
 ---
 
 ## 👤 Author
